@@ -1,4 +1,6 @@
-﻿namespace MessengerMAUI;
+﻿using Microsoft.Maui.LifecycleEvents;
+
+namespace MessengerMAUI;
 
 public static class MauiProgram
 {

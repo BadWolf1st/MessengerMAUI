@@ -53,17 +53,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Resource1.Designer.cs">
+	  <Compile Update="UserData.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Resource1.resx</DependentUpon>
+	    <DependentUpon>UserData.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Resource1.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+	  <EmbeddedResource Update="UserData.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>UserData.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 
@@ -72,6 +72,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ChatProcessor.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="LogInPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
