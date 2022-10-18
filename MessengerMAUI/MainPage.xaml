@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MessengerMAUI.MainPage">
+
+    <Grid x:Name="MainGrid" Padding="5" BackgroundColor="#161719">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="84"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalOptions="End" Grid.Column="1" Padding="8">
+                    <Rectangle x:Name="FriendButtonBackground" WidthRequest="45" HeightRequest="45" />
+                    <!--<ImageButton x:Name="FriendButton" Source="people_icon.png" BackgroundColor="#161719" WidthRequest="40" HeightRequest="40"/>-->
+                    <Button x:Name="FriendButton" Clicked="ClickedFriendButton" Background="#161719" ImageSource="people_icon.png" WidthRequest="55" HeightRequest="50"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>
