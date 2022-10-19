@@ -1,3 +1,5 @@
+using Microsoft.Maui.Dispatching;
+
 namespace MessengerMAUI;
 
 public partial class LogInPage : ContentPage
@@ -5,20 +7,27 @@ public partial class LogInPage : ContentPage
 	public LogInPage()
 	{
 		InitializeComponent();
+
+
 		if (UserData.HaveUserSavedData == "True")
 		{
             if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)
 			{
-
-			}
+				Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+            }
 			else
 			{
-				ErrorRectangle.IsVisible=true;
+				//errorMessageRectangle.IsVisible=true;
 				ErrorCantLogin.IsVisible=true;
                 LoginTextBox.Text = UserData.UserLogin;
                 PasswordTextBox.Text = UserData.UserLogin;
             }
 		}
+	}
+	Shell shell;
+	public void setShell(Shell workShell)
+	{
+		shell = workShell;
 	}
 
 	public string UserLogin = "";
@@ -50,11 +59,20 @@ public partial class LogInPage : ContentPage
 		{
 			if (ServerUserLoginChecker(UserLogin, UserPassword) == true)
 			{
-			}
+                ErrorCantLogin.Text = "Неправильные уч. данные!";
+                //errorMessageRectangle.IsVisible = true;
+                ErrorCantLogin.IsVisible = false;
+
+
+				//Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+				//Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+				//Shell.Current.
+				Shell.Current.Title = "Messenger";
+            }
 			else
 			{
 				ErrorCantLogin.Text = "Неправильные уч. данные!";
-				ErrorRectangle.IsVisible = true;
+				//errorMessageRectangle.IsVisible = true;
                 ErrorCantLogin.IsVisible = true;
             }
 		}
