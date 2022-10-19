@@ -14,6 +14,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <!--<Rectangle BackgroundColor="Pink" RadiusX="20" RadiusY="20"  />--> <!--!!!В страницах по какойто неведомой причине не работает округление!!!-->
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
