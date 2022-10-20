@@ -17,7 +17,7 @@ public partial class LogInPage : ContentPage
             }
 			else
 			{
-				//errorMessageRectangle.IsVisible=true;
+				errorMessageRectangle.IsVisible=true;
 				ErrorCantLogin.IsVisible=true;
                 LoginTextBox.Text = UserData.UserLogin;
                 PasswordTextBox.Text = UserData.UserLogin;
@@ -60,7 +60,7 @@ public partial class LogInPage : ContentPage
 			if (ServerUserLoginChecker(UserLogin, UserPassword) == true)
 			{
                 ErrorCantLogin.Text = "Неправильные уч. данные!";
-                //errorMessageRectangle.IsVisible = true;
+                errorMessageRectangle.IsVisible = true;
                 ErrorCantLogin.IsVisible = false;
 
 
@@ -72,7 +72,7 @@ public partial class LogInPage : ContentPage
 			else
 			{
 				ErrorCantLogin.Text = "Неправильные уч. данные!";
-				//errorMessageRectangle.IsVisible = true;
+				errorMessageRectangle.IsVisible = true;
                 ErrorCantLogin.IsVisible = true;
             }
 		}

@@ -5,7 +5,7 @@ public partial class AppShell : Shell
 	public AppShell()
 	{
 		InitializeComponent();
-        ContentShell.Content = new LogInPage();
+        ContentShell.Content = new MainPage();
         //start();
     }
 

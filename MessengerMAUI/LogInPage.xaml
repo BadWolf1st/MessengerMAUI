@@ -20,7 +20,7 @@
             <Label Text="Сохранить пароль" Grid.Column="1" Margin="0,5,0,0"/>
         </Grid>
         <Grid x:Name="ErrorMessageGrid" Margin="0, 472, 0, 0">
-            <!--<Ellipse x:Name="ErrorRectangle" WidthRequest="206" HeightRequest="38" BackgroundColor="Black" HorizontalOptions="Center" VerticalOptions="Start"  />-->
+            <Rectangle x:Name="errorMessageRectangle" WidthRequest="206" HeightRequest="38" Fill="Black" HorizontalOptions="Center" VerticalOptions="Start" RadiusX="20"  RadiusY="20"/>
             <Label x:Name="ErrorCantLogin" Text="Неудалось войти!" TextColor="Red" FontAttributes="Bold" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,9,0,0"/>
         </Grid>
     </Grid>
