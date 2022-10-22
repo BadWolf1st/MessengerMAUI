@@ -7,16 +7,21 @@ public partial class LogInPage : ContentPage
 		InitializeComponent();
 		if (UserData.HaveUserSavedData == "True")
 		{
-            if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)
-			{
-
-			}
+            if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: Пределать, т.к. не возможно сохранять данные в .resx
+            {
+                LoginTextBox.Text = UserData.UserSavedLogin;
+                PasswordTextBox.Text = UserData.UserSavedPassword;
+				getUserData();
+                Shell.Current.GoToAsync("MainPage");
+                ErrorCantLogin.IsVisible = false;
+                ErrorRectangle.IsVisible = false;
+            }
 			else
 			{
 				ErrorRectangle.IsVisible=true;
 				ErrorCantLogin.IsVisible=true;
-                LoginTextBox.Text = UserData.UserLogin;
-                PasswordTextBox.Text = UserData.UserLogin;
+                LoginTextBox.Text = UserData.UserSavedLogin;
+                PasswordTextBox.Text = UserData.UserSavedPassword;
             }
 		}
 	}
@@ -32,7 +37,7 @@ public partial class LogInPage : ContentPage
 
 	bool ServerUserLoginChecker( string Login, string Password)
 	{
-        //Начиная с этой строки, код, который принадлежит этой функции, является ТЕСТОВЫМ функционалом
+        // HACK: Начиная с этой строки, код, который принадлежит этой функции, является ТЕСТОВЫМ функционалом 
         if (Login == "Раскутин Сергей" && Password == "12345678")
         {
             return true;
@@ -50,14 +55,29 @@ public partial class LogInPage : ContentPage
 		{
 			if (ServerUserLoginChecker(UserLogin, UserPassword) == true)
 			{
+				// TODO: сделать сохранение уч. данных
 				Shell.Current.GoToAsync("MainPage");
-			}
+                ErrorCantLogin.IsVisible = false;
+                ErrorRectangle.IsVisible = false;
+            }
 			else
 			{
 				ErrorCantLogin.Text = "Неправильные уч. данные!";
 				ErrorRectangle.IsVisible = true;
                 ErrorCantLogin.IsVisible = true;
             }
+		}
+	}
+
+	private void ShowPasswordSwitch_Toggled(object sender, ToggledEventArgs e)
+	{
+		if (ShowPasswordSwitch.IsToggled == true)
+		{
+			PasswordTextBox.IsPassword = false;
+		}
+		else
+		{
+			PasswordTextBox.IsPassword = true;
 		}
 	}
 }

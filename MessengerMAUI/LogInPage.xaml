@@ -6,9 +6,11 @@
              >
     <Grid HeightRequest="556" WidthRequest="591">
         <Label x:Name="Brand" Text="Messenger" HorizontalOptions="Center" VerticalOptions="Start" FontSize="40" FontFamily="Lato" FontAttributes="Bold" Margin="0,50,0,0"/>
-        <Rectangle x:Name="Line" BackgroundColor="White" HeightRequest="4" RadiusX="20" RadiusY="20" WidthRequest = "201" Margin="0,98,0,0" VerticalOptions="Start"/>
+        <Rectangle x:Name="Line" Fill="White" HeightRequest="4" RadiusX="20" RadiusY="20" WidthRequest = "201" Margin="0,98,0,0" VerticalOptions="Start"/>
         <Entry x:Name="LoginTextBox" WidthRequest="405" Placeholder="Логин" HeightRequest="38" Margin="0,184,0,0" VerticalOptions="Start"/>
         <Entry x:Name="PasswordTextBox" WidthRequest="405" Placeholder="Пароль" IsPassword="True" HeightRequest="38" Margin="0,256,0,0" VerticalOptions="Start"/>
+        <Switch x:Name="ShowPasswordSwitch" Toggled="ShowPasswordSwitch_Toggled" Margin="510,0,0,0" OnColor="#00B8E7"/>
+        <!--<Label Text="Показать пароль" Margin="510,0,0,0"/>-->
         <Button x:Name="LogInButton" Clicked="LogInButton_Clicked" WidthRequest="206" HeightRequest="38" BackgroundColor="#00B8E7" Text="Войти" TextColor="White" Margin="0,328,0,0" VerticalOptions="Start"/>
         <Grid Margin="399,386,0,0">
             <Grid.ColumnDefinitions>
@@ -19,7 +21,7 @@
             <Label Text="Сохранить пароль" Grid.Column="1" Margin="0,5,0,0"/>
         </Grid>
         <Grid Margin="0, 472, 0, 0">
-            <Rectangle x:Name="ErrorRectangle" WidthRequest="206" HeightRequest="38" BackgroundColor="Black" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Start" RadiusX="20" RadiusY="20" />
+            <Rectangle x:Name="ErrorRectangle" WidthRequest="206" HeightRequest="38" Fill="Black" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Start" RadiusX="20" RadiusY="20" />
             <Label x:Name="ErrorCantLogin" Text="Неудалось войти!" TextColor="Red" FontAttributes="Bold" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,9,0,0"/>
         </Grid>
     </Grid>

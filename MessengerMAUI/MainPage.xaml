@@ -6,27 +6,30 @@
     <Grid x:Name="MainGrid" Padding="5" BackgroundColor="#161719">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="2"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Rectangle Fill="#2F2F2F" Grid.Column="1"/>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="84"/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <!--<Rectangle BackgroundColor="Pink" RadiusX="20" RadiusY="20"  />--> <!--!!!В страницах по какойто неведомой причине не работает округление!!!-->
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                
                 <Grid HorizontalOptions="Start" Grid.Column="0" Padding="8">
-                    <Button x:Name="testExitAccountButton" Text="Выход! Test" Clicked="ExitAccount"/>
+                    <Rectangle RadiusX="30" RadiusY="30" HorizontalOptions="Start" WidthRequest="84" HeightRequest="84" Fill="#303030"/>
+                    <Rectangle RadiusX="20" RadiusY="20" HorizontalOptions="Start" WidthRequest="64" HeightRequest="64" Fill="#D7A700" x:Name="UserIcon" Margin="10,0,0,0"/>
+                    <Label Text="РС" HorizontalOptions="Start" VerticalOptions="Center" FontSize="39" FontAttributes="Bold" x:Name="Initials" Margin="17,0,0,0" />
+                    <!--<Button x:Name="testExitAccountButton" Text="Выход! Test" Clicked="ExitAccount"/>-->
                 </Grid>
                 <Grid HorizontalOptions="End" Grid.Column="1" Padding="8">
-                    <!--<Rectangle x:Name="FriendButtonBackground" WidthRequest="45" HeightRequest="45" />-->
-                    <!--<ImageButton x:Name="FriendButton" Source="people_icon.png" BackgroundColor="#161719" WidthRequest="40" HeightRequest="40"/>-->
-                    <Button x:Name="FriendButton" Clicked="ClickedFriendButton" Background="#161719" ImageSource="people_icon.png" WidthRequest="55" HeightRequest="50"/>
+                    <Button x:Name="FriendButton" Clicked="ClickedFriendButton" Background="#161719" ImageSource="people_icon.png"  WidthRequest="50" HeightRequest="50" Padding="10,10,0,10"/>
                 </Grid>
             </Grid>
         </Grid>

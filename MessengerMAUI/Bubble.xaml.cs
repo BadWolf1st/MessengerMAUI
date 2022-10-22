@@ -10,7 +10,9 @@ public partial class Bubble : ContentView
         
 	}
     public void BubbleCreator(string Message, bool SenderIsUser)
-    {//Ќужно реализовать изменение углов пузыр€ в соответствии с дизайном
+    {
+        // TODO: реализовать изменение углов пузыр€ в соответствии с дизайном
+        // TODO: реализовать перенос текста на другую строку
         ThisMessageLabel.Text = Message;
         if (SenderIsUser == true)
         {

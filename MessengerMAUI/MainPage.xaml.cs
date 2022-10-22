@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace MessengerMAUI;
+﻿namespace MessengerMAUI;
 public partial class MainPage : ContentPage
 {
     public MainPage()
@@ -14,8 +12,8 @@ public partial class MainPage : ContentPage
 
     void openChat()
     {
-        ChatProcessor chat = new ChatProcessor();
-        MainGrid.Add(chat, 1);
+        ChatProcessor chat = new ChatProcessor("Кто-то") { Margin = new Thickness(10, 0, 0, 0) };
+        MainGrid.Add(chat, 2);
     }
 
     //void checkFriendButton()

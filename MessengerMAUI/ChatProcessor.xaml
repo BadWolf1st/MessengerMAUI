@@ -8,27 +8,53 @@
             <RowDefinition/>
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="Header" HeightRequest="84" Grid.Row="0" BackgroundColor="Green">
-            <Label Text="This is test Chat" VerticalOptions="Start" FontSize="32" />
-            <Label Text="Test Name" VerticalOptions="Start" HorizontalOptions="End" FontSize="32" />
+        <Grid x:Name="Header" 
+            HeightRequest="84" 
+            Grid.Row="0">
+            <Label Text="Чат" 
+                FontSize="32"
+                FontAttributes="Bold"
+                 VerticalOptions="Center"/>
+            <Label x:Name="ChatName"
+                Text="Test Name" 
+                VerticalOptions="Center" 
+                HorizontalOptions="End" 
+                FontSize="32"
+                FontAttributes="Bold"/>
         </Grid>
-        <ScrollView x:Name="Body"  Grid.Row="1">
-            <Grid x:Name="MessagesGrid" Padding="0" Margin="0">
-                <!--<Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions >-->
+        <ScrollView x:Name="Body"  
+            Grid.Row="1">
+            <Grid x:Name="MessagesGrid">
+                <!--Сюда генерируются диалоги (bubbles)-->
             </Grid>
         </ScrollView>
-        <Grid x:Name="Footer"  Grid.Row="2">
+        <Grid x:Name="Footer"  
+            Grid.Row="2">
             <Grid.ColumnDefinitions >
                 <ColumnDefinition/>
                 <ColumnDefinition Width="105"/>
             </Grid.ColumnDefinitions>
-            <Rectangle Fill="#272B2C" Grid.Column="0"/>
-            <Entry x:Name="TextBox" Grid.Column="0"/>
-            <Button x:Name="SendButton" Text="Отправить" BackgroundColor="#0066DC" TextColor="White" Clicked="SendButtonClicked" Grid.Column="2"/>
-            <CheckBox x:Name="testSenderCheckBox"/>
+            <Rectangle Fill="#272B2C" 
+                Grid.Column="0"/>
+            <Editor  x:Name="TextBox" 
+                Grid.Column="0"
+                VerticalTextAlignment="Center">
+                <Editor.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>
+                                CapitalizeSentence, Spellcheck, Suggestions
+                            </KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Editor.Keyboard>
+            </Editor>
+            <Button x:Name="SendButton" 
+                Text="Отправить" 
+                BackgroundColor="#0066DC" 
+                TextColor="White" Clicked="SendButtonClicked" 
+                Grid.Column="2"/>
+            <CheckBox x:Name="testSenderCheckBox"/> <!--Удали это, когда сделаешь общение с сервером-->
         </Grid>
     </Grid>
 </ContentView>
