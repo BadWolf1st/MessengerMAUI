@@ -6,6 +6,8 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        
+
         openChat();
         //checkFriendButton();//Как её проверять паралельно с работой приложения? Многопаточность?
     }
@@ -42,6 +44,11 @@ public partial class MainPage : ContentPage
             FriendListIsOpen=true;
             FriendButton.Background = Color.Parse("#7E7E7E");
         }
+    }
+
+    private void ExitAccount(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
     }
 }
 

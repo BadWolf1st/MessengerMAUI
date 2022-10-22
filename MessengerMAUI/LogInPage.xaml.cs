@@ -50,6 +50,7 @@ public partial class LogInPage : ContentPage
 		{
 			if (ServerUserLoginChecker(UserLogin, UserPassword) == true)
 			{
+				Shell.Current.GoToAsync("MainPage");
 			}
 			else
 			{
