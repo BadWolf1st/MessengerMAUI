@@ -97,7 +97,7 @@ public partial class LogInPage : ContentPage
             Shell.Current.GoToAsync("MainPage");
             ErrorCantLogin.IsVisible = false;
             ErrorRectangle.IsVisible = false;
-            //User user = new User();
+            User user = new User();
             //user.Login = UserLogin;
             //user.Password = UserPassword;
             //user.FullName = UserLogin;

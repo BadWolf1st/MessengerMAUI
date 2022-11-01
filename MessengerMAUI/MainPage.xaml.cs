@@ -14,6 +14,9 @@ public partial class MainPage : ContentPage
     public MainPage(TcpClient tcpClient)
     {
         client = tcpClient;
+        InitializeComponent();
+        initProfile();
+        initchatcards();
     }
 
 
