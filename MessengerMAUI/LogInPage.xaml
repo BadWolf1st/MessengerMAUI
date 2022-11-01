@@ -4,7 +4,7 @@
              x:Class="MessengerMAUI.LogInPage"
              BackgroundColor="#161719"
              >
-    <Grid HeightRequest="556" WidthRequest="591">
+    <Grid x:Name="Body" HeightRequest="556" WidthRequest="591">
         <Label x:Name="Brand" Text="Messenger" HorizontalOptions="Center" VerticalOptions="Start" FontSize="40" FontFamily="Lato" FontAttributes="Bold" Margin="0,50,0,0"/>
         <Rectangle x:Name="Line" Fill="White" HeightRequest="4" RadiusX="20" RadiusY="20" WidthRequest = "201" Margin="0,98,0,0" VerticalOptions="Start"/>
         <Entry x:Name="LoginTextBox" WidthRequest="405" Placeholder="Логин" HeightRequest="38" Margin="0,184,0,0" VerticalOptions="Start"/>

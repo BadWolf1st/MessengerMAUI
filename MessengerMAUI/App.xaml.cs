@@ -8,6 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
+
 		MainPage = new AppShell();
 		//PagesChanger("MainPage");
 		//MainPage = new TestsLoginPage();

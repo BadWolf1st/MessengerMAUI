@@ -8,8 +8,10 @@
     Title="Messenger">
 
     <ShellContent
+
         ContentTemplate="{DataTemplate local:LogInPage}"
         Route="LoginPage"
         />
+
 
 </Shell>

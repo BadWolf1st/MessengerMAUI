@@ -1,3 +1,5 @@
+using Microsoft.Maui.Dispatching;
+
 namespace MessengerMAUI;
 
 public partial class LogInPage : ContentPage
@@ -7,7 +9,7 @@ public partial class LogInPage : ContentPage
 		InitializeComponent();
 		//if (UserData.HaveUserSavedData == "True")
 		//{
-  //          if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: Пределать, т.к. не возможно сохранять данные в .resx
+  //          if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: ГЏГ°ГҐГ¤ГҐГ«Г ГІГј, ГІ.ГЄ. Г­ГҐ ГўГ®Г§Г¬Г®Г¦Г­Г® Г±Г®ГµГ°Г Г­ГїГІГј Г¤Г Г­Г­Г»ГҐ Гў .resx
   //          {
   //              LoginTextBox.Text = UserData.UserSavedLogin;
   //              PasswordTextBox.Text = UserData.UserSavedPassword;
@@ -25,6 +27,11 @@ public partial class LogInPage : ContentPage
   //          }
 		//}
 	}
+	Shell shell;
+	public void setShell(Shell workShell)
+	{
+		shell = workShell;
+	}
 
 	public string UserLogin = "";
 	public string UserPassword = "";
@@ -37,8 +44,8 @@ public partial class LogInPage : ContentPage
 
 	bool ServerUserLoginChecker( string Login, string Password)
 	{
-        // HACK: Начиная с этой строки, код, который принадлежит этой функции, является ТЕСТОВЫМ функционалом 
-        if (Login == "Раскутин Сергей" && Password == "12345678")
+        // HACK: ГЌГ Г·ГЁГ­Г Гї Г± ГЅГІГ®Г© Г±ГІГ°Г®ГЄГЁ, ГЄГ®Г¤, ГЄГ®ГІГ®Г°Г»Г© ГЇГ°ГЁГ­Г Г¤Г«ГҐГ¦ГЁГІ ГЅГІГ®Г© ГґГіГ­ГЄГ¶ГЁГЁ, ГїГўГ«ГїГҐГІГ±Гї Г’Г…Г‘Г’ГЋГ‚Г›ГЊ ГґГіГ­ГЄГ¶ГЁГ®Г­Г Г«Г®Г¬ 
+        if (Login == "ГђГ Г±ГЄГіГІГЁГ­ Г‘ГҐГ°ГЈГҐГ©" && Password == "12345678")
         {
             User user = new User();
 			user.Login=Login;
@@ -61,15 +68,15 @@ public partial class LogInPage : ContentPage
 		{
 			if (ServerUserLoginChecker(UserLogin, UserPassword) == true)
 			{
-				// TODO: сделать сохранение уч. данных
+				// TODO: Г±Г¤ГҐГ«Г ГІГј Г±Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГіГ·. Г¤Г Г­Г­Г»Гµ
 				Shell.Current.GoToAsync("MainPage");
                 ErrorCantLogin.IsVisible = false;
                 ErrorRectangle.IsVisible = false;
             }
 			else
 			{
-				ErrorCantLogin.Text = "Неправильные уч. данные!";
-				ErrorRectangle.IsVisible = true;
+				ErrorCantLogin.Text = "ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г»ГҐ ГіГ·. Г¤Г Г­Г­Г»ГҐ!";
+				errorMessageRectangle.IsVisible = true;
                 ErrorCantLogin.IsVisible = true;
             }
 		}
