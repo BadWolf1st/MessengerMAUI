@@ -1,4 +1,6 @@
-﻿namespace MessengerMAUI;
+﻿using Microsoft.Maui.LifecycleEvents;
+
+namespace MessengerMAUI;
 
 public partial class App : Application
 {
@@ -6,6 +8,18 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+        MainPage = new AppShell();
+    }
+
+	public void PagesChanger(string NamePage = "LogInPage")
+	{
+		if(NamePage == "LogInPage")
+		{
+			MainPage = new LogInPage();
+		}
+		else if(NamePage == "MainPage")
+		{
+			MainPage = new MainPage();
+		}
 	}
 }

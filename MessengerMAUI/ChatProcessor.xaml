@@ -8,7 +8,7 @@
             <RowDefinition/>
             <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="Header" HeightRequest="84" Grid.Row="0" BackgroundColor="Green">
+        <Grid x:Name="Header" HeightRequest="84" Grid.Row="0">
             <Label Text="This is test Chat" VerticalOptions="Start" FontSize="32" />
             <Label Text="Test Name" VerticalOptions="Start" HorizontalOptions="End" FontSize="32" />
         </Grid>

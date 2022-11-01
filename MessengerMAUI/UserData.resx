@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BubblePesonColor" xml:space="preserve">
-    <value>"#525252"</value>
+  <data name="HaveUserSavedData" xml:space="preserve">
+    <value>False</value>
   </data>
-  <data name="BubbleUserColor" xml:space="preserve">
-    <value>#0066DC</value>
+  <data name="UserLogin" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserPassword" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserPreferSaveUserData" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="UserSavedLogin" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserSavedPassword" xml:space="preserve">
+    <value />
   </data>
 </root>
