@@ -5,25 +5,25 @@ public partial class LogInPage : ContentPage
 	public LogInPage()
 	{
 		InitializeComponent();
-		if (UserData.HaveUserSavedData == "True")
-		{
-            if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: Пределать, т.к. не возможно сохранять данные в .resx
-            {
-                LoginTextBox.Text = UserData.UserSavedLogin;
-                PasswordTextBox.Text = UserData.UserSavedPassword;
-				getUserData();
-                Shell.Current.GoToAsync("MainPage");
-                ErrorCantLogin.IsVisible = false;
-                ErrorRectangle.IsVisible = false;
-            }
-			else
-			{
-				ErrorRectangle.IsVisible=true;
-				ErrorCantLogin.IsVisible=true;
-                LoginTextBox.Text = UserData.UserSavedLogin;
-                PasswordTextBox.Text = UserData.UserSavedPassword;
-            }
-		}
+		//if (UserData.HaveUserSavedData == "True")
+		//{
+  //          if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: Пределать, т.к. не возможно сохранять данные в .resx
+  //          {
+  //              LoginTextBox.Text = UserData.UserSavedLogin;
+  //              PasswordTextBox.Text = UserData.UserSavedPassword;
+		//		getUserData();
+  //              Shell.Current.GoToAsync("MainPage");
+  //              ErrorCantLogin.IsVisible = false;
+  //              ErrorRectangle.IsVisible = false;
+  //          }
+		//	else
+		//	{
+		//		ErrorRectangle.IsVisible=true;
+		//		ErrorCantLogin.IsVisible=true;
+  //              LoginTextBox.Text = UserData.UserSavedLogin;
+  //              PasswordTextBox.Text = UserData.UserSavedPassword;
+  //          }
+		//}
 	}
 
 	public string UserLogin = "";
@@ -40,7 +40,13 @@ public partial class LogInPage : ContentPage
         // HACK: Начиная с этой строки, код, который принадлежит этой функции, является ТЕСТОВЫМ функционалом 
         if (Login == "Раскутин Сергей" && Password == "12345678")
         {
-            return true;
+            User user = new User();
+			user.Login=Login;
+			user.Password=Password;
+			user.FullName = Login;
+			user.saveData();
+
+			return true;
         }
 		else
 		{
