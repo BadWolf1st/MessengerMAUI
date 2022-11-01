@@ -8,7 +8,10 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-        MainPage = new AppShell();
+
+		MainPage = new AppShell();
+		//PagesChanger("MainPage");
+		//MainPage = new TestsLoginPage();
     }
 
 	public void PagesChanger(string NamePage = "LogInPage")

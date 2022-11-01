@@ -3,13 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MessengerMAUI.Bubble"
              >
-    <Grid x:Name="ThisBubbleGrid"  Padding="0" Margin="20">
-        <Rectangle x:Name="ThisMessageBubble" Fill="#0066DC" ZIndex="1" RadiusX="20" RadiusY="20"/>
-        <Label x:Name="ThisMessageLabel" Text="This is Test" ZIndex="2" Padding="10"/>
+    <!--<ContentView.Resources>
+        <DataTemplate x:Key="My">
+            <Grid x:Name="ThisBubbleGrid"  Padding="0" Margin="20" MaximumWidthRequest="500" HorizontalOptions="End">
+                <Rectangle x:Name="ThisMessageBubble" Fill="#0066DC" ZIndex="1" RadiusX="20" RadiusY="20" MaximumWidthRequest="500"/>
+                <Label x:Name="ThisMessageLabel" Text="This is Test" ZIndex="2" Padding="10" LineBreakMode="WordWrap" MaximumWidthRequest="490"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="NotMy">
+            <Grid x:Name="ThisBubbleGrid"  Padding="0" Margin="20" MaximumWidthRequest="500" HorizontalOptions="Start">
+                <Rectangle x:Name="ThisMessageBubble" Fill="#303030" ZIndex="1" RadiusX="20" RadiusY="20" MaximumWidthRequest="500"/>
+                <Label x:Name="ThisMessageLabel" Text="This is Test" ZIndex="2" Padding="10" LineBreakMode="WordWrap" MaximumWidthRequest="490"/>
+            </Grid>
+        </DataTemplate>
+    </ContentView.Resources>-->
+    <Grid x:Name="ThisBubbleGrid"  Padding="0" Margin="20" MaximumWidthRequest="500">
+        <Rectangle x:Name="ThisMessageBubble" Fill="#0066DC" ZIndex="1" RadiusX="20" RadiusY="20" MaximumWidthRequest="500"/>
+        <Label x:Name="ThisMessageLabel" Text="This is Test" ZIndex="2" Padding="10" LineBreakMode="WordWrap" MaximumWidthRequest="490"/>
     </Grid>
-        <!--<VerticalStackLayout>
-            <Entry x:Name="TextBox" Text=""/>
-            <Button Text="Click me" Clicked="TestCreateBubble"/>
-            <CheckBox x:Name="IsPerson" IsChecked="False"/>
-        </VerticalStackLayout>-->
 </ContentView>

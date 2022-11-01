@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="HaveUserSavedData" xml:space="preserve">
-    <value>False</value>
+    <value>True</value>
   </data>
   <data name="UserLogin" xml:space="preserve">
-    <value />
+    <value>Раскутин Сергей</value>
   </data>
   <data name="UserPassword" xml:space="preserve">
-    <value />
+    <value>12345678</value>
   </data>
   <data name="UserPreferSaveUserData" xml:space="preserve">
     <value>True</value>
   </data>
   <data name="UserSavedLogin" xml:space="preserve">
-    <value />
+    <value>Раскутин Сергей</value>
   </data>
   <data name="UserSavedPassword" xml:space="preserve">
-    <value />
+    <value>12345678</value>
   </data>
 </root>

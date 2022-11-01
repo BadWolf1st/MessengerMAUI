@@ -1,34 +1,64 @@
-﻿using System.Threading;
-
-namespace MessengerMAUI;
+﻿namespace MessengerMAUI;
 public partial class MainPage : ContentPage
 {
     public MainPage()
     {
         InitializeComponent();
-        openChat();
-        //checkFriendButton();//Как её проверять паралельно с работой приложения? Многопаточность?
+        initProfile();
+        initchatcards();
     }
 
-    void openChat()
+    User user = new User();
+    void initProfile()
     {
-        ChatProcessor chat = new ChatProcessor();
-        MainGrid.Add(chat, 1);
+        user.loadData();
+
+        Initials.Text = inicialsGenerator(user.FullName);
+        //TODO: Добавить обработку цвета профиля
     }
 
-    //void checkFriendButton()
-    //{
-    //    while (true) { //Хз как это починить
-    //        if (FriendButton.IsPressed == true)
-    //        {
-    //            FriendButtonBackground.BackgroundColor = Color.Parse("#7E7E7E");
-    //        }
-    //        else
-    //        {
-    //            FriendButtonBackground.BackgroundColor = Color.Parse("#161719");
-    //        }
-    //    }
-    //}
+    string inicialsGenerator(string Name) //Конструктор инициаллов собеседника из имени собесденика
+    {
+        if (Name != null) //TODO:Оптимизировать это!!! и в PersonCardPattern.xaml.cs
+        {
+            string inicials = Name[0].ToString();//Копируем первый символ из Фамилии собеседника
+
+            int i = 1;
+            while (i <= Name.Length)
+            {
+                if (Name[i] == ' ')//Ищем разрыв в строке между имененм и фамилией
+                {
+                    inicials += Name[i + 1];//Копируем второй инициал и раняем цикл
+                    break;
+                }
+                i++;
+            }
+            return inicials; //Возвращаем инициаллы ввиде строки
+        }
+        else //Если имя пришло пустое, выводим ошибку
+        {
+            return "ERR";
+        }
+    }
+
+    void openChat(string PersonName="")//Вызов чата
+    {
+        ChatProcessor chat = new ChatProcessor(PersonName) { Margin = new Thickness(10, 0, 0, 0) };
+        MainGrid.Add(chat, 2);
+        chat.DrawMessage(user.path+user.file, false);//TODO:УДАЛИ ЭТО!!!
+    }
+
+    void initchatcards() //Создание карточек собеседника
+    {
+        ChatListCostructure chatList = new ChatListCostructure();
+        chatList.generateCard("Викторов Илья", "Как настроение?");
+        //TODO: Добавить обработчик нажатия по карточке собеседника
+        //TODO: Добавить вывод из сервера всех доступных карточек
+        ListOfChats.Add(chatList);
+
+        openChat("Викторов Илья");
+    }
+
     bool FriendListIsOpen = false;
     private void ClickedFriendButton(object sender, EventArgs e)
     {
@@ -42,6 +72,11 @@ public partial class MainPage : ContentPage
             FriendListIsOpen=true;
             FriendButton.Background = Color.Parse("#7E7E7E");
         }
+    }
+
+    private void ExitAccount(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("..");
     }
 }
 

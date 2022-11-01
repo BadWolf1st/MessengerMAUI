@@ -7,22 +7,25 @@ public partial class LogInPage : ContentPage
 	public LogInPage()
 	{
 		InitializeComponent();
-
-
-		if (UserData.HaveUserSavedData == "True")
-		{
-            if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)
-			{
-				Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-            }
-			else
-			{
-				errorMessageRectangle.IsVisible=true;
-				ErrorCantLogin.IsVisible=true;
-                LoginTextBox.Text = UserData.UserLogin;
-                PasswordTextBox.Text = UserData.UserLogin;
-            }
-		}
+		//if (UserData.HaveUserSavedData == "True")
+		//{
+  //          if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: ГЏГ°ГҐГ¤ГҐГ«Г ГІГј, ГІ.ГЄ. Г­ГҐ ГўГ®Г§Г¬Г®Г¦Г­Г® Г±Г®ГµГ°Г Г­ГїГІГј Г¤Г Г­Г­Г»ГҐ Гў .resx
+  //          {
+  //              LoginTextBox.Text = UserData.UserSavedLogin;
+  //              PasswordTextBox.Text = UserData.UserSavedPassword;
+		//		getUserData();
+  //              Shell.Current.GoToAsync("MainPage");
+  //              ErrorCantLogin.IsVisible = false;
+  //              ErrorRectangle.IsVisible = false;
+  //          }
+		//	else
+		//	{
+		//		ErrorRectangle.IsVisible=true;
+		//		ErrorCantLogin.IsVisible=true;
+  //              LoginTextBox.Text = UserData.UserSavedLogin;
+  //              PasswordTextBox.Text = UserData.UserSavedPassword;
+  //          }
+		//}
 	}
 	Shell shell;
 	public void setShell(Shell workShell)
@@ -41,10 +44,16 @@ public partial class LogInPage : ContentPage
 
 	bool ServerUserLoginChecker( string Login, string Password)
 	{
-        //Начиная с этой строки, код, который принадлежит этой функции, является ТЕСТОВЫМ функционалом
-        if (Login == "Раскутин Сергей" && Password == "12345678")
+        // HACK: ГЌГ Г·ГЁГ­Г Гї Г± ГЅГІГ®Г© Г±ГІГ°Г®ГЄГЁ, ГЄГ®Г¤, ГЄГ®ГІГ®Г°Г»Г© ГЇГ°ГЁГ­Г Г¤Г«ГҐГ¦ГЁГІ ГЅГІГ®Г© ГґГіГ­ГЄГ¶ГЁГЁ, ГїГўГ«ГїГҐГІГ±Гї Г’Г…Г‘Г’ГЋГ‚Г›ГЊ ГґГіГ­ГЄГ¶ГЁГ®Г­Г Г«Г®Г¬ 
+        if (Login == "ГђГ Г±ГЄГіГІГЁГ­ Г‘ГҐГ°ГЈГҐГ©" && Password == "12345678")
         {
-            return true;
+            User user = new User();
+			user.Login=Login;
+			user.Password=Password;
+			user.FullName = Login;
+			user.saveData();
+
+			return true;
         }
 		else
 		{
@@ -59,22 +68,29 @@ public partial class LogInPage : ContentPage
 		{
 			if (ServerUserLoginChecker(UserLogin, UserPassword) == true)
 			{
-                ErrorCantLogin.Text = "Неправильные уч. данные!";
-                errorMessageRectangle.IsVisible = true;
+				// TODO: Г±Г¤ГҐГ«Г ГІГј Г±Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГіГ·. Г¤Г Г­Г­Г»Гµ
+				Shell.Current.GoToAsync("MainPage");
                 ErrorCantLogin.IsVisible = false;
-
-
-				//Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-				//Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-				//Shell.Current.
-				Shell.Current.Title = "Messenger";
+                ErrorRectangle.IsVisible = false;
             }
 			else
 			{
-				ErrorCantLogin.Text = "Неправильные уч. данные!";
+				ErrorCantLogin.Text = "ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г»ГҐ ГіГ·. Г¤Г Г­Г­Г»ГҐ!";
 				errorMessageRectangle.IsVisible = true;
                 ErrorCantLogin.IsVisible = true;
             }
+		}
+	}
+
+	private void ShowPasswordSwitch_Toggled(object sender, ToggledEventArgs e)
+	{
+		if (ShowPasswordSwitch.IsToggled == true)
+		{
+			PasswordTextBox.IsPassword = false;
+		}
+		else
+		{
+			PasswordTextBox.IsPassword = true;
 		}
 	}
 }

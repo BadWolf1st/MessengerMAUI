@@ -4,10 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MessengerMAUI"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    Title="Messenger">
 
     <ShellContent
-        Title="" 
-        x:Name="ContentShell"/>
+
+        ContentTemplate="{DataTemplate local:LogInPage}"
+        Route="LoginPage"
+        />
+
 
 </Shell>

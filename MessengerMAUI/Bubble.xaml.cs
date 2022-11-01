@@ -4,23 +4,25 @@ namespace MessengerMAUI;
 
 public partial class Bubble : ContentView
 {
-	public Bubble()
+	public Bubble(string message, bool senderIsUser)
 	{
         InitializeComponent();
-        
+        BubbleCreator(message, senderIsUser);
 	}
     public void BubbleCreator(string Message, bool SenderIsUser)
-    {// TODO Нужно реализовать изменение углов пузыря в соответствии с дизайном
+    {
+        // TODO: Г°ГҐГ Г«ГЁГ§Г®ГўГ ГІГј ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ ГіГЈГ«Г®Гў ГЇГіГ§Г»Г°Гї Гў Г±Г®Г®ГІГўГҐГІГ±ГІГўГЁГЁ Г± Г¤ГЁГ§Г Г©Г­Г®Г¬
+        // TODO: Г°ГҐГ Г«ГЁГ§Г®ГўГ ГІГј ГЇГҐГ°ГҐГ­Г®Г± ГІГҐГЄГ±ГІГ  Г­Г  Г¤Г°ГіГЈГіГѕ Г±ГІГ°Г®ГЄГі
         ThisMessageLabel.Text = Message;
         if (SenderIsUser == true)
         {
             ThisMessageBubble.Fill = Color.Parse("#0066DC");
-            ThisBubbleGrid.HorizontalOptions = LayoutOptions.End;//Смещение вправо
+            ThisBubbleGrid.HorizontalOptions = LayoutOptions.End;//Г‘Г¬ГҐГ№ГҐГ­ГЁГҐ ГўГЇГ°Г ГўГ®
         }
         else
         {
             ThisMessageBubble.Fill = Color.Parse("#303030");
-            ThisBubbleGrid.HorizontalOptions = LayoutOptions.Start;//Смещение влево
+            ThisBubbleGrid.HorizontalOptions = LayoutOptions.Start;//Г‘Г¬ГҐГ№ГҐГ­ГЁГҐ ГўГ«ГҐГўГ®
         }
     }
 }
