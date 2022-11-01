@@ -14,15 +14,15 @@ public partial class App : Application
 		//MainPage = new TestsLoginPage();
     }
 
-	public void PagesChanger(string NamePage = "LogInPage")
-	{
-		if(NamePage == "LogInPage")
-		{
-			MainPage = new LogInPage();
-		}
-		else if(NamePage == "MainPage")
-		{
-			MainPage = new MainPage();
-		}
-	}
+	//public void PagesChanger(string NamePage = "LogInPage")
+	//{
+	//	if(NamePage == "LogInPage")
+	//	{
+	//		MainPage = new LogInPage();
+	//	}
+	//	else if(NamePage == "MainPage")
+	//	{
+	//		MainPage = new MainPage();
+	//	}
+	//}
 }

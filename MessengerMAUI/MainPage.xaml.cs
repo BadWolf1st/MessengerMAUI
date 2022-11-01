@@ -1,12 +1,22 @@
-﻿namespace MessengerMAUI;
+﻿using System.Net.Sockets;
+
+namespace MessengerMAUI;
 public partial class MainPage : ContentPage
 {
-    public MainPage()
+    //public MainPage()
+    //{
+    //    InitializeComponent();
+    //    initProfile();
+    //    initchatcards();
+    //}
+
+    public TcpClient client;
+    public MainPage(TcpClient tcpClient)
     {
-        InitializeComponent();
-        initProfile();
-        initchatcards();
+        client = tcpClient;
     }
+
+
 
     User user = new User();
     void initProfile()

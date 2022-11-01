@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Microsoft.Maui.Controls.Shapes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,22 +17,50 @@ namespace MessengerMAUI
         public string Password { get; set; }
 
         public string path = Environment.ExpandEnvironmentVariables(@"%APPDATA%\Messenger");
-        public string file = "\\saveUserData.txt";
+        public string file = "saveUserData.txt";
         public void saveData()
-        {   
-            using (StreamWriter writer = new StreamWriter(path + file, false))
-            {
-                writer.WriteLine(FullName);
-                writer.WriteLine(ProfileColor);
-                writer.WriteLine(ProfileTextColor);
-                writer.WriteLine(Login);
-                writer.WriteLine(Password);
-            }
+        {
+            //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
+            //Pass the filepath and filename to the StreamWriter Constructor
+            StreamWriter sw = new StreamWriter(path);
+            //Write a line of text
+           
+            sw.WriteLine(FullName);
+            sw.WriteLine(ProfileColor);
+            sw.WriteLine(ProfileTextColor);
+            sw.WriteLine(Login);
+            sw.WriteLine(Password);
+            //Write a second line of text
+           
+            //Close the file
+            sw.Close();
+            //using (StreamWriter writer = new StreamWriter(path, false))
+            //{
+            //    writer.WriteLine(FullName);
+            //    writer.WriteLine(ProfileColor);
+            //    writer.WriteLine(ProfileTextColor);
+            //    writer.WriteLine(Login);
+            //    writer.WriteLine(Password);
+            //}
         }
-        
+
+        public string line;
         public void loadData()
         {
-            using (StreamReader reader = new StreamReader(path + file))
+            //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
+            StreamReader sr = new StreamReader(path);
+            //Read the first line of text
+            //line = sr.ReadLine();
+            FullName = sr.ReadLine();
+            ProfileColor = sr.ReadLine();
+            ProfileTextColor = sr.ReadLine();
+            Login = sr.ReadLine();
+            Password = sr.ReadLine();
+            //close the file
+            sr.Close();
+            //Console.ReadLine();
+
+            using (StreamReader reader = new StreamReader(path))
             {
                 FullName = reader.ReadLine();
                 ProfileColor = reader.ReadLine();
