@@ -32,6 +32,9 @@
                     <Button x:Name="FriendButton" Clicked="ClickedFriendButton" Background="#161719" ImageSource="people_icon.png"  WidthRequest="50" HeightRequest="50" Padding="10,10,0,10"/>
                 </Grid>
             </Grid>
+            <Grid x:Name="ListOfChats" Grid.Row="1"> <!--Список чатов-->
+
+            </Grid>
         </Grid>
     </Grid>
 

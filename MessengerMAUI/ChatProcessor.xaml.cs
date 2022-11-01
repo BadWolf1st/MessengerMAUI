@@ -1,3 +1,6 @@
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Internals;
+
 namespace MessengerMAUI;
 
 public partial class ChatProcessor : ContentView
@@ -5,12 +8,16 @@ public partial class ChatProcessor : ContentView
 	public ChatProcessor(string Name)
 	{
 		InitializeComponent();
-        MessagesGrid.VerticalOptions = LayoutOptions.End;
-        MessagesGrid.HorizontalOptions = LayoutOptions.Fill;
+
+        //MessagesGrid.VerticalOptions = LayoutOptions.End;
+        //MessagesGrid.HorizontalOptions = LayoutOptions.Fill;
         ChatName.Text = Name;
+
+
     }
 
-    List<Bubble> Messages = new();
+    private List<ThisBubble> Messages = new();
+    private List<Bubble> Bubbles = new();
 
     public int LastMessageIndex = 0;
 
@@ -28,22 +35,33 @@ public partial class ChatProcessor : ContentView
         TextBox.Text = "";//Очистка поля ввода
     }
 
-    public async void DrawMessage(string message, bool IsMyMessage)//Adding Message like a bubble
+    public void DrawMessage(string message, bool IsMyMessage, int timeMin = 0, int timeHour = 0/*, string date*/ )//Adding Message like a bubble
     {
         if (message != null)
         {
-            
-            Messages.Add(new Bubble());
-            Messages[LastMessageIndex].BubbleCreator(message, IsMyMessage);
-            MessagesGrid.AddRowDefinition(new RowDefinition());
-            MessagesGrid.Add(Messages[LastMessageIndex], 0, LastMessageIndex);
-            Body.Content = MessagesGrid;//Update chat content
+            //MessagesGrid.AddRowDefinition(new RowDefinition());
+            //MessagesGrid.Add(Messages[LastMessageIndex], 0, LastMessageIndex);
+            //Body.Content = MessagesGrid;//Update chat content
 
-            Body.ScrollToAsync(0, Body.ContentSize.Height, true);//UNDONE //scrolling to end //Поднял вопрос на stackoverflow https://stackoverflow.com/questions/74167376/maui-scrollview-to-end
+            //Body.ScrollToAsync(0, Body.ContentSize.Height, true);//UNDONE //scrolling to end //Поднял вопрос на stackoverflow https://stackoverflow.com/questions/74167376/maui-scrollview-to-end
+
+            //LastMessageIndex++;
+
+
+            Messages.Add(new ThisBubble());
+            Messages[LastMessageIndex].Message = message;
+            Messages[LastMessageIndex].sendTime = timeHour.ToString() + ":" + timeMin.ToString();
+            Messages[LastMessageIndex].UserMessage = IsMyMessage;
+
+            //Body.AddLogicalChild(new Bubble(Messages[LastMessageIndex].Message, Messages[LastMessageIndex].UserMessage));
+            //Body.ItemsSource = Messages; //Почему б**ть оно выводит только одно сообщение!!!!
+
+            Bubbles.Add(new Bubble(Messages[LastMessageIndex].Message, true));
+
+            BindableLayout.SetItemsSource(BodyContent, Messages.ToArray());
+            BindableLayout.SetItemTemplateSelector(BodyContent, new BubbleDataTemplateSelector());
 
             LastMessageIndex++;
         }
     }
-
-    
 }

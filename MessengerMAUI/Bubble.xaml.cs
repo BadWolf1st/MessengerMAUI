@@ -4,10 +4,10 @@ namespace MessengerMAUI;
 
 public partial class Bubble : ContentView
 {
-	public Bubble()
+	public Bubble(string message, bool senderIsUser)
 	{
         InitializeComponent();
-        
+        BubbleCreator(message, senderIsUser);
 	}
     public void BubbleCreator(string Message, bool SenderIsUser)
     {

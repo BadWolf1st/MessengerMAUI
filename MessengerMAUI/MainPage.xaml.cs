@@ -5,30 +5,24 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
         
-
-        openChat();
-        //checkFriendButton();//Как её проверять паралельно с работой приложения? Многопаточность?
+        initchatcards();
     }
 
-    void openChat()
+    void openChat(string PersonName="")//Вызов чата
     {
-        ChatProcessor chat = new ChatProcessor("Кто-то") { Margin = new Thickness(10, 0, 0, 0) };
+        ChatProcessor chat = new ChatProcessor(PersonName) { Margin = new Thickness(10, 0, 0, 0) };
         MainGrid.Add(chat, 2);
     }
 
-    //void checkFriendButton()
-    //{
-    //    while (true) { //Хз как это починить
-    //        if (FriendButton.IsPressed == true)
-    //        {
-    //            FriendButtonBackground.BackgroundColor = Color.Parse("#7E7E7E");
-    //        }
-    //        else
-    //        {
-    //            FriendButtonBackground.BackgroundColor = Color.Parse("#161719");
-    //        }
-    //    }
-    //}
+    void initchatcards() //Создание карточек собеседника
+    {
+        ChatListCostructure chatList = new ChatListCostructure();
+        chatList.generateCard("Викторов Илья", "Как настроение?");
+        //TODO: Добавить обработчик нажатия по карточке собеседника
+        //TODO: Добавить вывод из сервера всех доступных карточек
+        ListOfChats.Add(chatList);
+    }
+
     bool FriendListIsOpen = false;
     private void ClickedFriendButton(object sender, EventArgs e)
     {
