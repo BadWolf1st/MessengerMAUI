@@ -1,20 +1,20 @@
-using Microsoft.Maui.Dispatching;
-using System.Net;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Text;
-
 
 namespace MessengerMAUI;
 
-public partial class LogInPage : ContentPage
+public partial class LoginContent : ContentView
 {
-    public TcpClient client = new TcpClient(address, port);
-    const int port = 8888;
-    const string address = "78.107.255.193";
+    public TcpClient client = new TcpClient();
 
-    public LogInPage()
-    {
-        InitializeComponent();
+    MainPage Page;
+    
+    public LoginContent(MainPage page)
+	{
+		InitializeComponent();
+        client = page.client;
+        Page = page;
+
         //if (UserData.HaveUserSavedData == "True")
         //{
         //          if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: Ïðåäåëàòü, ò.ê. íå âîçìîæíî ñîõðàíÿòü äàííûå â .resx
@@ -35,6 +35,7 @@ public partial class LogInPage : ContentPage
         //          }
         //}
     }
+
     Shell shell;
     public void setShell(Shell workShell)
     {
@@ -53,7 +54,6 @@ public partial class LogInPage : ContentPage
 
     bool ServerUserLoginChecker()
     {
-        // HACK: Íà÷èíàÿ ñ ýòîé ñòðîêè, êîä, êîòîðûé ïðèíàäëåæèò ýòîé ôóíêöèè, ÿâëÿåòñÿ ÒÅÑÒÎÂÛÌ ôóíêöèîíàëîì 
         if (AcceptAuthorization == "1")
         {
             return true;
@@ -94,7 +94,9 @@ public partial class LogInPage : ContentPage
         if (ServerUserLoginChecker() == true)
         {
             // TODO: сделать сохранение уч. данных
-            Shell.Current.GoToAsync("MainPage");
+            //Shell.Current.GoToAsync("MainPage");
+            
+
             ErrorCantLogin.IsVisible = false;
             ErrorRectangle.IsVisible = false;
             User user = new User();
@@ -102,6 +104,8 @@ public partial class LogInPage : ContentPage
             user.Password = UserPassword;
             user.FullName = UserLogin;
             user.saveData();
+
+            Page.pageChanger("Main");
             //MainPage authorization = new MainPage(client);
 
         }

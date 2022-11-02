@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MessengerMAUI.LogInPage"
-             BackgroundColor="#161719"
-             >
+             x:Class="MessengerMAUI.LoginContent">
     <Grid x:Name="Body" HeightRequest="556" WidthRequest="591">
         <Label x:Name="Brand" Text="Messenger" HorizontalOptions="Center" VerticalOptions="Start" FontSize="40" FontFamily="Lato" FontAttributes="Bold" Margin="0,50,0,0"/>
         <Rectangle x:Name="Line" Fill="White" HeightRequest="4" RadiusX="20" RadiusY="20" WidthRequest = "201" Margin="0,98,0,0" VerticalOptions="Start"/>
@@ -25,4 +23,4 @@
             <Label x:Name="ErrorCantLogin" Text="Неудалось войти!" TextColor="Red" FontAttributes="Bold" IsVisible="False" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,9,0,0"/>
         </Grid>
     </Grid>
-</ContentPage>
+</ContentView>
