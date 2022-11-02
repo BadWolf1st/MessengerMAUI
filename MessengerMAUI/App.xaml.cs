@@ -16,11 +16,11 @@ public partial class App : Application
 
 	//public void PagesChanger(string NamePage = "LogInPage")
 	//{
-	//	if(NamePage == "LogInPage")
+	//	if (NamePage == "LogInPage")
 	//	{
 	//		MainPage = new LogInPage();
 	//	}
-	//	else if(NamePage == "MainPage")
+	//	else if (NamePage == "MainPage")
 	//	{
 	//		MainPage = new MainPage();
 	//	}

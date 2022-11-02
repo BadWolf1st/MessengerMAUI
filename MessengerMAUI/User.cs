@@ -22,7 +22,7 @@ namespace MessengerMAUI
         {
             //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
             //Pass the filepath and filename to the StreamWriter Constructor
-            StreamWriter sw = new StreamWriter(path);
+            StreamWriter sw = new StreamWriter("C:\\Users\\Admin\\AppData\\Roaming\\Messenger\\saveUserData.txt");
             //Write a line of text
            
             sw.WriteLine(FullName);
@@ -48,7 +48,7 @@ namespace MessengerMAUI
         public void loadData()
         {
             //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
-            StreamReader sr = new StreamReader(path);
+            StreamReader sr = new StreamReader("C:\\Users\\Admin\\AppData\\Roaming\\Messenger\\saveUserData.txt");
             //Read the first line of text
             //line = sr.ReadLine();
             FullName = sr.ReadLine();
@@ -60,14 +60,14 @@ namespace MessengerMAUI
             sr.Close();
             //Console.ReadLine();
 
-            using (StreamReader reader = new StreamReader(path))
-            {
-                FullName = reader.ReadLine();
-                ProfileColor = reader.ReadLine();
-                ProfileTextColor = reader.ReadLine();
-                Login = reader.ReadLine();
-                Password = reader.ReadLine();
-            }
+            //using (StreamReader reader = new StreamReader(path))
+            //{
+            //    FullName = reader.ReadLine();
+            //    ProfileColor = reader.ReadLine();
+            //    ProfileTextColor = reader.ReadLine();
+            //    Login = reader.ReadLine();
+            //    Password = reader.ReadLine();
+            //}
         }
     }
 

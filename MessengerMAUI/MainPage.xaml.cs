@@ -11,9 +11,9 @@ public partial class MainPage : ContentPage
     //}
 
     public TcpClient client;
-    public MainPage(TcpClient tcpClient)
+    public MainPage()
     {
-        client = tcpClient;
+        //client = tcpClient;
         InitializeComponent();
         initProfile();
         initchatcards();
@@ -26,7 +26,7 @@ public partial class MainPage : ContentPage
     {
         user.loadData();
 
-        Initials.Text = inicialsGenerator(user.FullName);
+        //Initials.Text = inicialsGenerator(user.FullName);
         //TODO: Добавить обработку цвета профиля
     }
 
@@ -58,7 +58,6 @@ public partial class MainPage : ContentPage
     {
         ChatProcessor chat = new ChatProcessor(PersonName) { Margin = new Thickness(10, 0, 0, 0) };
         MainGrid.Add(chat, 2);
-        chat.DrawMessage(user.path+user.file, false);//TODO:УДАЛИ ЭТО!!!
     }
 
     void initchatcards() //Создание карточек собеседника

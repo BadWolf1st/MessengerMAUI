@@ -64,7 +64,7 @@ public partial class LogInPage : ContentPage
         }
     }
 
-    private void LogInButton_Clicked(object sender, EventArgs e)
+    private async void LogInButton_Clicked(object sender, EventArgs e)
     {
 
         //const int port = 8888;
@@ -98,11 +98,11 @@ public partial class LogInPage : ContentPage
             ErrorCantLogin.IsVisible = false;
             ErrorRectangle.IsVisible = false;
             User user = new User();
-            //user.Login = UserLogin;
-            //user.Password = UserPassword;
-            //user.FullName = UserLogin;
-            //user.saveData();
-            MainPage authorization = new MainPage(client);
+            user.Login = UserLogin;
+            user.Password = UserPassword;
+            user.FullName = UserLogin;
+            user.saveData();
+            //MainPage authorization = new MainPage(client);
 
         }
         else
