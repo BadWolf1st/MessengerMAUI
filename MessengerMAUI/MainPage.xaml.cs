@@ -3,92 +3,38 @@
 namespace MessengerMAUI;
 public partial class MainPage : ContentPage
 {
-    //public MainPage()
-    //{
-    //    InitializeComponent();
-    //    initProfile();
-    //    initchatcards();
-    //}
+    //public TcpClient client = new TcpClient(address, port);
+    //const int port = 8888;
+    ////const string address = "78.107.255.193";
+    //const string address = "172.20.10.7";
 
-    public TcpClient client;
+
     public MainPage()
     {
-        //client = tcpClient;
         InitializeComponent();
-        initProfile();
-        initchatcards();
+
+        initFirstLogin();
+
     }
 
-
-
-    User user = new User();
-    void initProfile()
+    void initFirstLogin()
     {
-        user.loadData();
-
-        //Initials.Text = inicialsGenerator(user.FullName);
-        //TODO: Добавить обработку цвета профиля
+        LoginContent loginContent = new LoginContent(this);
+        ContentMainView.Add(loginContent);
     }
-
-    string inicialsGenerator(string Name) //Конструктор инициаллов собеседника из имени собесденика
+    
+    public void pageChanger(string NameOfPage)
     {
-        if (Name != null) //TODO:Оптимизировать это!!! и в PersonCardPattern.xaml.cs
+        if(NameOfPage == "Main")
         {
-            string inicials = Name[0].ToString();//Копируем первый символ из Фамилии собеседника
-
-            int i = 1;
-            while (i <= Name.Length)
-            {
-                if (Name[i] == ' ')//Ищем разрыв в строке между имененм и фамилией
-                {
-                    inicials += Name[i + 1];//Копируем второй инициал и раняем цикл
-                    break;
-                }
-                i++;
-            }
-            return inicials; //Возвращаем инициаллы ввиде строки
+            MainContent Content = new MainContent(this);
+            ContentMainView.Add(Content);
         }
-        else //Если имя пришло пустое, выводим ошибку
+        else if(NameOfPage == "Login")
         {
-            return "ERR";
+            LoginContent Content = new LoginContent(this);
+            ContentMainView.Add(Content);
         }
-    }
-
-    void openChat(string PersonName="")//Вызов чата
-    {
-        ChatProcessor chat = new ChatProcessor(PersonName) { Margin = new Thickness(10, 0, 0, 0) };
-        MainGrid.Add(chat, 2);
-    }
-
-    void initchatcards() //Создание карточек собеседника
-    {
-        ChatListCostructure chatList = new ChatListCostructure();
-        chatList.generateCard("Викторов Илья", "Как настроение?");
-        //TODO: Добавить обработчик нажатия по карточке собеседника
-        //TODO: Добавить вывод из сервера всех доступных карточек
-        ListOfChats.Add(chatList);
-
-        openChat("Викторов Илья");
-    }
-
-    bool FriendListIsOpen = false;
-    private void ClickedFriendButton(object sender, EventArgs e)
-    {
-        if (FriendListIsOpen == true)
-        {
-            FriendListIsOpen = false;
-            FriendButton.Background = Color.Parse("#161719");
-        }
-        else
-        {
-            FriendListIsOpen=true;
-            FriendButton.Background = Color.Parse("#7E7E7E");
-        }
-    }
-
-    private void ExitAccount(object sender, EventArgs e)
-    {
-        Shell.Current.GoToAsync("..");
     }
 }
 
