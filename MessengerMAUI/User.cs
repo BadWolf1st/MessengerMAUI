@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MessengerMAUI
 {
-    internal class User
+    internal class User //TODO: Пределать систему передачи пользователя между контентом
     {
         public string FullName { get; set; }
         public string ProfileColor { get; set; }
@@ -22,7 +22,7 @@ namespace MessengerMAUI
         {
             //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
             //Pass the filepath and filename to the StreamWriter Constructor
-            StreamWriter sw = new StreamWriter("C:\\Users\\Admin\\AppData\\Roaming\\Messenger\\saveUserData.txt");
+            StreamWriter sw = new StreamWriter("C:\\Users\\mario\\AppData\\Roaming\\Messenger\\saveUserData.txt");
             //Write a line of text
            
             sw.WriteLine(FullName);
@@ -48,7 +48,7 @@ namespace MessengerMAUI
         public void loadData()
         {
             //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
-            StreamReader sr = new StreamReader("C:\\Users\\Admin\\AppData\\Roaming\\Messenger\\saveUserData.txt");
+            StreamReader sr = new StreamReader("C:\\Users\\mario\\AppData\\Roaming\\Messenger\\saveUserData.txt");
             //Read the first line of text
             //line = sr.ReadLine();
             FullName = sr.ReadLine();

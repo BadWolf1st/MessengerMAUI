@@ -36,6 +36,7 @@ public partial class PersonCardPattern : ContentView
 		//TODO: Добавить обработчик цветов иконки
 		Ignor.IsVisible = haveIgnore; 
 		//TODO: Добавить контекстное меню обрабатываемое нажатием ПКМ по иконке
+		//TODO: !!!Изменить базу под единую кнопку!!!
 	}
 
 	string inicialsGenerator(string Name) //Конструктор инициаллов собеседника из имени собесденика

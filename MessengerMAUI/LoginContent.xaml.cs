@@ -12,34 +12,8 @@ public partial class LoginContent : ContentView
     public LoginContent(MainPage page)
 	{
 		InitializeComponent();
-        client = page.client;
+        //client = page.client;
         Page = page;
-
-        //if (UserData.HaveUserSavedData == "True")
-        //{
-        //          if (ServerUserLoginChecker(UserData.UserSavedLogin, UserData.UserSavedPassword) == true)// REFACTOR: Ïðåäåëàòü, ò.ê. íå âîçìîæíî ñîõðàíÿòü äàííûå â .resx
-        //          {
-        //              LoginTextBox.Text = UserData.UserSavedLogin;
-        //              PasswordTextBox.Text = UserData.UserSavedPassword;
-        //		getUserData();
-        //              Shell.Current.GoToAsync("MainPage");
-        //              ErrorCantLogin.IsVisible = false;
-        //              ErrorRectangle.IsVisible = false;
-        //          }
-        //	else
-        //	{
-        //		ErrorRectangle.IsVisible=true;
-        //		ErrorCantLogin.IsVisible=true;
-        //              LoginTextBox.Text = UserData.UserSavedLogin;
-        //              PasswordTextBox.Text = UserData.UserSavedPassword;
-        //          }
-        //}
-    }
-
-    Shell shell;
-    public void setShell(Shell workShell)
-    {
-        shell = workShell;
     }
 
     public string AcceptAuthorization;
@@ -54,48 +28,42 @@ public partial class LoginContent : ContentView
 
     bool ServerUserLoginChecker()
     {
-        if (AcceptAuthorization == "1")
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        //if (AcceptAuthorization == "1")
+        //{
+        //    return true;
+        //}
+        //else
+        //{
+        //    return false;
+        //}
+
+        return true;
     }
 
     private async void LogInButton_Clicked(object sender, EventArgs e)
     {
-
-        //const int port = 8888;
-        //const string address = "78.107.255.193";
-        //client = new TcpClient(address, port);
-        NetworkStream stream = client.GetStream();
+        //NetworkStream stream = client.GetStream();
+        
         getUserData();
-        byte[] data = Encoding.Unicode.GetBytes(UserLogin + " " + UserPassword);
-        stream.Write(data, 0, data.Length);
+        
+        //byte[] data = Encoding.Unicode.GetBytes(UserLogin + " " + UserPassword);
+        //stream.Write(data, 0, data.Length);
 
-        data = new byte[256]; // буфер для получаемых данных
-        StringBuilder builder = new StringBuilder();
-        int bytes = 0;
-        do
-        {
-            bytes = stream.Read(data, 0, data.Length);
-            builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
-        }
-        while (stream.DataAvailable);
+        //data = new byte[256]; // буфер для получаемых данных
+        //StringBuilder builder = new StringBuilder();
+        //int bytes = 0;
+        //do
+        //{
+        //    bytes = stream.Read(data, 0, data.Length);
+        //    builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+        //}
+        //while (stream.DataAvailable);
+        //
+        //AcceptAuthorization = builder.ToString();
 
-        AcceptAuthorization = builder.ToString();
-
-
-
-
-
-        if (ServerUserLoginChecker() == true)
+        if (ServerUserLoginChecker())
         {
             // TODO: сделать сохранение уч. данных
-            //Shell.Current.GoToAsync("MainPage");
-            
 
             ErrorCantLogin.IsVisible = false;
             ErrorRectangle.IsVisible = false;
@@ -103,11 +71,9 @@ public partial class LoginContent : ContentView
             user.Login = UserLogin;
             user.Password = UserPassword;
             user.FullName = UserLogin;
-            user.saveData();
+            //user.saveData();
 
             Page.pageChanger("Main");
-            //MainPage authorization = new MainPage(client);
-
         }
         else
         {
@@ -115,12 +81,11 @@ public partial class LoginContent : ContentView
             ErrorRectangle.IsVisible = true;
             ErrorCantLogin.IsVisible = true;
         }
-
     }
 
     private void ShowPasswordSwitch_Toggled(object sender, ToggledEventArgs e)
     {
-        if (ShowPasswordSwitch.IsToggled == true)
+        if (ShowPasswordSwitch.IsToggled)
         {
             PasswordTextBox.IsPassword = false;
         }

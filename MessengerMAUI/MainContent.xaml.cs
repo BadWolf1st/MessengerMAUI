@@ -5,19 +5,12 @@ namespace MessengerMAUI;
 
 public partial class MainContent : ContentView
 {
-    //public MainContent()
-    //{
-    //    InitializeComponent();
-    //    initProfile();
-    //    initchatcards();
-    //}
-
     public TcpClient client = new TcpClient();
     MainPage Page;
 
     public MainContent(MainPage page)
     {
-        client = page.client;
+        //client = page.client;
         Page = page;
         InitializeComponent();
         initProfile();
@@ -67,11 +60,11 @@ public partial class MainContent : ContentView
     {
         ChatListCostructure chatList = new ChatListCostructure();
         chatList.generateCard("Викторов Илья", "Как настроение?");
-        //TODO: Добавить обработчик нажатия по карточке собеседника
-        //TODO: Добавить вывод из сервера всех доступных карточек
+        //TODO: !!Добавить обработчик нажатия по карточке собеседника!!
+        //TODO: !Добавить вывод из сервера всех доступных карточек!
         ListOfChats.Add(chatList);
 
-        openChat("Викторов Илья");
+        //openChat("Викторов Илья");
     }
 
     bool FriendListIsOpen = false;
@@ -87,7 +80,8 @@ public partial class MainContent : ContentView
             FriendListIsOpen = true;
             FriendButton.Background = Color.Parse("#7E7E7E");
         }
+
+        //TODO: Добавить отправку ивента на сервер
+        //TODO: !Добавить контент!
     }
-
-
 }
