@@ -36,5 +36,8 @@
 
             </Grid>
         </Grid>
+        <Grid x:Name="ContentGrid" Grid.Column="2">
+
+        </Grid>
     </Grid>
 </ContentView>

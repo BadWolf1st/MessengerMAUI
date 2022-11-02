@@ -53,7 +53,8 @@ public partial class MainContent : ContentView
     void openChat(string PersonName = "")//Вызов чата
     {
         ChatProcessor chat = new ChatProcessor(PersonName) { Margin = new Thickness(10, 0, 0, 0) };
-        MainGrid.Add(chat, 2);
+        ContentGrid.Clear();
+        ContentGrid.Add(chat, 2);
     }
 
     void initchatcards() //Создание карточек собеседника
@@ -62,6 +63,7 @@ public partial class MainContent : ContentView
         chatList.generateCard("Викторов Илья", "Как настроение?");
         //TODO: !!Добавить обработчик нажатия по карточке собеседника!!
         //TODO: !Добавить вывод из сервера всех доступных карточек!
+        ListOfChats.Clear();
         ListOfChats.Add(chatList);
 
         //openChat("Викторов Илья");
@@ -74,11 +76,16 @@ public partial class MainContent : ContentView
         {
             FriendListIsOpen = false;
             FriendButton.Background = Color.Parse("#161719");
+            ContentGrid.Clear();
         }
         else
         {
             FriendListIsOpen = true;
             FriendButton.Background = Color.Parse("#7E7E7E");
+
+            FriendContent content = new FriendContent();
+            ContentGrid.Clear();
+            ContentGrid.Add(content, 2);
         }
 
         //TODO: Добавить отправку ивента на сервер

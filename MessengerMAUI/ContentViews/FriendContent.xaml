@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MessengerMAUI.FriendContent">
+    <StackLayout Padding="20" Spacing="20">
+        <Label Text="Список друзей" HorizontalOptions="Center" FontSize="39" FontFamily="Lato" FontAttributes="Bold"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" BackgroundColor="#303030" WidthRequest="70" HorizontalOptions="Center" ImageSource="search_icon.png" x:Name="SearchButton"/>
+            <Entry x:Name="SearchLineBox" BackgroundColor="#303030" Grid.Column="1"/>
+        </Grid>
+        <StackLayout x:Name="listOfFriends"/>
+    </StackLayout>
+</ContentView>
