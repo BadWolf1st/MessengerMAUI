@@ -61,10 +61,9 @@ public partial class MainContent : ContentView
     void initchatcards() //Создание карточек собеседника
     {
         DownloadPeoples();
-        ChatListCostructure chatList = new ChatListCostructure();
-        chatList.generateCard("Викторов Илья", "Как настроение?");
+        ChatListCostructure chatList = new ChatListCostructure(this);
         //TODO: !!Добавить обработчик нажатия по карточке собеседника!!
-        //TODO: !Добавить вывод из сервера всех доступных карточек!
+        //TODO: !Добавить вывод из сервера всех доступных карточек! DONE 50%
         ListOfChats.Clear();
         ListOfChats.Add(chatList);
 
