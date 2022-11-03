@@ -36,11 +36,8 @@ public partial class FriendContent : ContentView
         initElement();
     }
 
-
-    List<FriendsPattern> friendsPatterns = new();
     public void addNewFriendCard(string name, bool IsFriend, int numOfRow, bool IsOnline = true)
     {
-        friendsPatterns.Add(new FriendsPattern(name, IsFriend, IsOnline));
-        listOfFriends.Add(friendsPatterns[numOfRow], 0, numOfRow);
+        listOfFriends.Add(new FriendsPattern(name, IsFriend, IsOnline), 0, numOfRow);
     }
 }
