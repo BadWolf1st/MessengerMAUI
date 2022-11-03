@@ -49,30 +49,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add_friend.svg" />
+	  <None Remove="Resources\Images\delete_friend.svg" />
 	  <None Remove="Resources\Images\people_icon.svg" />
 	  <None Remove="Resources\Images\Search_icon.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="UserData.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>UserData.resx</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="UserData.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>UserData.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+	  <None Remove="Resources\Images\Start_chat_with_person.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Bubble.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ChatListCostructure.xaml">
+	  <MauiXaml Update="ContentViews\ChatListCostructure.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ChatProcessor.xaml">
@@ -90,7 +78,10 @@
 	  <MauiXaml Update="NewContent1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PersonCardPattern.xaml">
+	  <MauiXaml Update="Patterns\FriendsPattern.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Patterns\PersonCardPattern.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="TestsLoginPage.xaml">

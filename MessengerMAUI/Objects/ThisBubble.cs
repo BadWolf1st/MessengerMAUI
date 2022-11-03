@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MessengerMAUI
+namespace MessengerMAUI.Objects
 {
     public class ThisBubble
     {

@@ -1,12 +1,11 @@
-﻿
-using Microsoft.Maui.Controls.Shapes;
+﻿using Microsoft.Maui.Controls.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MessengerMAUI
+namespace MessengerMAUI.Objects
 {
     internal class User //TODO: Пределать систему передачи пользователя между контентом
     {
@@ -24,14 +23,14 @@ namespace MessengerMAUI
             //Pass the filepath and filename to the StreamWriter Constructor
             StreamWriter sw = new StreamWriter("C:\\Users\\mario\\AppData\\Roaming\\Messenger\\saveUserData.txt");
             //Write a line of text
-           
+
             sw.WriteLine(FullName);
             sw.WriteLine(ProfileColor);
             sw.WriteLine(ProfileTextColor);
             sw.WriteLine(Login);
             sw.WriteLine(Password);
             //Write a second line of text
-           
+
             //Close the file
             sw.Close();
             //using (StreamWriter writer = new StreamWriter(path, false))
