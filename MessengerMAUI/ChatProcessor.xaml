@@ -2,7 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MessengerMAUI.ChatProcessor">
-    
+
     <ContentView.Resources>
         <DataTemplate x:Key="MyMessage">
             <Grid x:Name="ThisBubbleGrid"  Padding="0" Margin="20" MaximumWidthRequest="500" HorizontalOptions="End">
@@ -41,7 +41,7 @@
         <ScrollView x:Name="Body"  
             Grid.Row="1">
             <StackLayout x:Name="BodyContent">
-                
+
             </StackLayout>
         </ScrollView>
         <!--<StackLayout Grid.Row="1">
@@ -75,7 +75,8 @@
                 BackgroundColor="#0066DC" 
                 TextColor="White" Clicked="SendButtonClicked" 
                 Grid.Column="2"/>
-            <CheckBox x:Name="testSenderCheckBox"/> <!--Удали это, когда сделаешь общение с сервером-->
+            <CheckBox x:Name="testSenderCheckBox"/>
+            <!--Удали это, когда сделаешь общение с сервером-->
         </Grid>
     </Grid>
 </ContentView>

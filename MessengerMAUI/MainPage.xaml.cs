@@ -22,7 +22,7 @@ public partial class MainPage : ContentPage
         LoginContent loginContent = new LoginContent(this);
         ContentMainView.Add(loginContent);
     }
-    
+
     public void pageChanger(string NameOfPage)
     {
         if(NameOfPage == "Main")

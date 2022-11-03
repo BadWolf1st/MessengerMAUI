@@ -12,8 +12,13 @@
             <Button Grid.Column="0" BackgroundColor="#303030" WidthRequest="70" HorizontalOptions="Center" ImageSource="search_icon.png" x:Name="SearchButton"/>
             <Entry x:Name="SearchLineBox" BackgroundColor="#303030" Grid.Column="1"/>
         </Grid>
-        <StackLayout x:Name="listOfFriends">
-            
-        </StackLayout>
+        <ScrollView x:Name="ScrollViewList">
+            <Grid x:Name="listOfFriends">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </ScrollView>
     </StackLayout>
 </ContentView>

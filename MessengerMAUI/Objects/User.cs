@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MessengerMAUI.Objects
 {
-    internal class User //TODO: Пределать систему передачи пользователя между контентом
+    public class User //TODO: Пределать систему передачи пользователя между контентом
     {
         public string FullName { get; set; }
         public string ProfileColor { get; set; }

@@ -41,7 +41,7 @@ public partial class LoginContent : ContentView
         return true;
     }
 
-    private async void LogInButton_Clicked(object sender, EventArgs e)
+    private void LogInButton_Clicked(object sender, EventArgs e)
     {
         //NetworkStream stream = client.GetStream();
         

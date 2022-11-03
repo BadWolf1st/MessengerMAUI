@@ -60,6 +60,7 @@ public partial class MainContent : ContentView
 
     void initchatcards() //Создание карточек собеседника
     {
+        DownloadPeoples();
         ChatListCostructure chatList = new ChatListCostructure();
         chatList.generateCard("Викторов Илья", "Как настроение?");
         //TODO: !!Добавить обработчик нажатия по карточке собеседника!!
@@ -68,6 +69,74 @@ public partial class MainContent : ContentView
         ListOfChats.Add(chatList);
 
         //openChat("Викторов Илья");
+    }
+
+    public List<People> peoples = new List<People>();
+
+    void DownloadPeoples()
+    {
+        People people = new People(); //Simulator event
+        people.login = "IliaK";
+        people.name = "Коржов Илья";
+        people.lastMessage = "Hi there!";
+        people.friendStatus = true;
+        people.onlineStatus = true;
+        people.lastMessageTime = "19:30";
+        people.haveChat = true;
+        people.IsSendLastMessage = true;
+        people.IsReadLastMessage = true;
+        peoples.Add(people);
+
+        people = new People(); //Simulator event
+        people.login = "IliaV";
+        people.name = "Викторов Илья";
+        people.lastMessage = "О! Серёга!";
+        people.friendStatus = true;
+        people.onlineStatus = false;
+        people.lastMessageTime = "9:25";
+        people.haveChat = true;
+        people.IsSendLastMessage = false;
+        people.IsReadLastMessage = false;
+        peoples.Add(people);
+
+        people = new People(); //Simulator event
+        people.login = "DmitryK";
+        people.name = "Кузьмин Дмитрий";
+        people.lastMessage = "Го физику делать?";
+        people.friendStatus = true;
+        people.onlineStatus = true;
+        people.lastMessageTime = "16:25";
+        people.haveChat = true;
+        people.IsSendLastMessage = false;
+        people.IsReadLastMessage = true;
+        peoples.Add(people);
+
+        people = new People(); //Simulator event
+        people.login = "TerehovS";
+        people.name = "Терехов Слава";
+        people.lastMessage = "Серёг, не отвлекаю?";
+        people.friendStatus = true;
+        people.onlineStatus = false;
+        people.lastMessageTime = "20:10";
+        people.haveChat = true;
+        people.IsSendLastMessage = true;
+        people.IsReadLastMessage = false;
+        peoples.Add(people);
+
+        people = new People(); //Simulator event
+        people.login = "MarinaD";
+        people.name = "Дашко Марина";
+        people.lastMessage = "";
+        people.friendStatus = false;
+        people.onlineStatus = false;
+        people.lastMessageTime = "";
+        people.haveChat = false;
+        people.IsSendLastMessage = false;
+        people.IsReadLastMessage = false;
+        peoples.Add(people);
+
+
+        //Event Loading peoples from server
     }
 
     bool FriendListIsOpen = false;
@@ -84,7 +153,7 @@ public partial class MainContent : ContentView
             FriendListIsOpen = true;
             FriendButton.Background = Color.Parse("#7E7E7E");
 
-            FriendContent content = new FriendContent();
+            FriendContent content = new FriendContent(this);
             ContentGrid.Clear();
             ContentGrid.Add(content, 2);
         }
@@ -93,3 +162,4 @@ public partial class MainContent : ContentView
         //TODO: !Добавить контент!
     }
 }
+

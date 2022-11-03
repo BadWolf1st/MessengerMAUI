@@ -12,10 +12,10 @@
                 <ColumnDefinition Width="70"/>
             </Grid.ColumnDefinitions>
 
-            <Rectangle Grid.Column="0" Margin="0, 0, 0, 0" IsVisible="true" HorizontalOptions="Start"  RadiusX="10" RadiusY="10" x:Name="OnlineStatus" Fill="Green" WidthRequest="20" HeightRequest="20"/>
+            <Rectangle Grid.Column="0" Margin="0, 0, 0, 0" IsVisible="true" HorizontalOptions="Center"  RadiusX="10" RadiusY="10" x:Name="OnlineStatus" Fill="Green" WidthRequest="15" HeightRequest="15"/>
             <Label Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" x:Name="FriendNameLabel" Text="Кузьмин Дмитрий" TextColor="White" FontAttributes="Bold" FontSize="19" FontFamily="Lato"/>
-            <Button Grid.Column="2" HorizontalOptions="End" ImageSource="start_chat_with_person.png" BackgroundColor="#303030" />
-            <Button Grid.Column="3" HorizontalOptions="End" ImageSource="delete_friend.png" BackgroundColor="#303030"/>
+            <Button x:Name="chatButton" Grid.Column="2" Clicked="chatButton_Clicked" HorizontalOptions="End" ImageSource="start_chat_with_person.png" BackgroundColor="#303030" />
+            <Button x:Name="multiButton" Clicked="multiButton_Clicked" Grid.Column="3" HorizontalOptions="End" ImageSource="delete_friend.png" BackgroundColor="#303030"/>
         </Grid>
     </Grid>
 </ContentView>
