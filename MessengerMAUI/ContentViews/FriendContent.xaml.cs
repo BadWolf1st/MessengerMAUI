@@ -22,8 +22,7 @@ public partial class FriendContent : ContentView
             while (currentPeople < main.peoples.Count)
             {
                 listOfFriends.AddRowDefinition(new RowDefinition());
-                People people = main.peoples[currentPeople];
-                addNewFriendCard(people.name, people.friendStatus, currentPeople, people.onlineStatus);
+                addNewFriendCard(main.peoples[currentPeople].name, main.peoples[currentPeople].friendStatus, currentPeople, main.peoples[currentPeople].onlineStatus);
                 currentPeople++;
             }
             ScrollViewList.Content = listOfFriends;
