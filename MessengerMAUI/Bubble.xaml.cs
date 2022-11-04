@@ -1,17 +1,15 @@
-using System.Xml.Linq;
-
 namespace MessengerMAUI;
 
 public partial class Bubble : ContentView
 {
-	public Bubble(string message, bool senderIsUser)
-	{
+    public Bubble(string message, bool senderIsUser)
+    {
         InitializeComponent();
         BubbleCreator(message, senderIsUser);
-	}
+    }
     public void BubbleCreator(string Message, bool SenderIsUser)
     {
-        
+
         ThisMessageLabel.Text = Message;
         if (SenderIsUser == true)
         {

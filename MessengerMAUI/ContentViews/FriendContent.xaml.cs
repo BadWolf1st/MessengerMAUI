@@ -1,4 +1,3 @@
-using MessengerMAUI.Objects;
 using MessengerMAUI.Patterns;
 using Microsoft.Maui.Platform;
 

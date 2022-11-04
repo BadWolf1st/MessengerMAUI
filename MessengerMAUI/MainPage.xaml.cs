@@ -1,5 +1,4 @@
 ﻿using System.Net.Sockets;
-
 namespace MessengerMAUI;
 public partial class MainPage : ContentPage
 {
@@ -25,12 +24,12 @@ public partial class MainPage : ContentPage
 
     public void pageChanger(string NameOfPage)
     {
-        if(NameOfPage == "Main")
+        if (NameOfPage == "Main")
         {
             MainContent Content = new MainContent(this);
             ContentMainView.Add(Content);
         }
-        else if(NameOfPage == "Login")
+        else if (NameOfPage == "Login")
         {
             LoginContent Content = new LoginContent(this);
             ContentMainView.Add(Content);
