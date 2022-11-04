@@ -6,6 +6,7 @@ public partial class PersonCardPattern : ContentView
     {
         InitializeComponent();
         init(Name, ThisLastMessage, haveNewMessage, newMessageCount, haveIgnore, time: time, IconColor: IconColor, textColor: textColor);
+        gridclkd();
     }
 
     void init(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default")
@@ -64,17 +65,30 @@ public partial class PersonCardPattern : ContentView
         }
     }
 
+    void gridclkd()
+    {
+        clk.GestureRecognizers.Add(new TapGestureRecognizer()
+        {
+            Command = new Command(() =>
+            {
+                card_Clicked();
+            })
+        });
+    }
+
     bool pushed = false;
-    private void card_Clicked(object sender, EventArgs e)
+    private void card_Clicked()
     {
         if (!pushed)
         {
             card.Fill = Color.Parse("#333538");
+            //thatbutton.BackgroundColor = Color.Parse("#333538");
             pushed = true;
         }
         else
         {
             card.Fill = Color.Parse("#161719");
+            //thatbutton.BackgroundColor = Color.Parse("#161719");
             pushed = false;
         }
     }
