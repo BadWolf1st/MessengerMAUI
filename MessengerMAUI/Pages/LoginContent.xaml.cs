@@ -1,37 +1,4 @@
-﻿
-/* Unmerged change from project 'MessengerMAUI (net6.0-maccatalyst)'
-Before:
-using System.Net.Sockets;
-using System.Text;
-using MessengerMAUI.Objects;
-After:
-using MessengerMAUI.Objects;
-using System.Net.Sockets;
-using System.Text;
-*/
-
-/* Unmerged change from project 'MessengerMAUI (net6.0-windows10.0.19041.0)'
-Before:
-using System.Net.Sockets;
-using System.Text;
-using MessengerMAUI.Objects;
-After:
-using MessengerMAUI.Objects;
-using System.Net.Sockets;
-using System.Text;
-*/
-
-/* Unmerged change from project 'MessengerMAUI (net6.0-ios)'
-Before:
-using System.Net.Sockets;
-using System.Text;
-using MessengerMAUI.Objects;
-After:
-using MessengerMAUI.Objects;
-using System.Net.Sockets;
-using System.Text;
-*/
-using MessengerMAUI.Objects;
+﻿using MessengerMAUI.Objects;
 using System.Net.Sockets;
 
 namespace MessengerMAUI;
@@ -100,11 +67,9 @@ public partial class LoginContent : ContentView
 
             ErrorCantLogin.IsVisible = false;
             ErrorRectangle.IsVisible = false;
-            User user = new User();
-            user.Login = UserLogin;
-            user.Password = UserPassword;
-            user.FullName = UserLogin;
-            //user.saveData();
+            Page.user.Login = UserLogin;
+            Page.user.Password = UserPassword;
+            Page.user.FullName = UserLogin;
 
             Page.pageChanger("Main");
         }
