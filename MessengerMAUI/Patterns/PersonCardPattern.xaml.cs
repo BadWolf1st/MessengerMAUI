@@ -2,11 +2,22 @@ namespace MessengerMAUI;
 
 public partial class PersonCardPattern : ContentView
 {
-    public PersonCardPattern(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default")
+    MainContent content;
+    public PersonCardPattern(MainContent main, string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", bool pushed = false, string IconColor = "default", string textColor = "default")
     {
         InitializeComponent();
+        content = main;
         init(Name, ThisLastMessage, haveNewMessage, newMessageCount, haveIgnore, time: time, IconColor: IconColor, textColor: textColor);
         gridclkd();
+
+        if (pushed)
+        {
+            setPushed();
+        }
+        else
+        {
+            setNotPushed();
+        }
     }
 
     void init(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default")
@@ -38,7 +49,6 @@ public partial class PersonCardPattern : ContentView
         //TODO: Добавить обработчик цветов иконки
         Ignor.IsVisible = haveIgnore;
         //TODO: Добавить контекстное меню обрабатываемое нажатием ПКМ по иконке
-        //TODO: !!!Изменить базу под единую кнопку!!!
     }
 
     string inicialsGenerator(string Name) //Конструктор инициаллов собеседника из имени собесденика
@@ -76,19 +86,41 @@ public partial class PersonCardPattern : ContentView
         });
     }
 
-    bool pushed = false;
+    private void openChat()
+    {
+        content.openChat(PersonName.Text);
+    }
+
+    public void setPushed()
+    {
+        if (pushed)
+        {
+            pushed = false;
+        }
+        card_Clicked();
+    }
+
+    public void setNotPushed()
+    {
+        if (!pushed)
+        {
+            pushed = true;
+        }
+        card_Clicked();
+    }
+
+    public bool pushed = false;
     private void card_Clicked()
     {
         if (!pushed)
         {
             card.Fill = Color.Parse("#333538");
-            //thatbutton.BackgroundColor = Color.Parse("#333538");
             pushed = true;
+            openChat();
         }
         else
         {
             card.Fill = Color.Parse("#161719");
-            //thatbutton.BackgroundColor = Color.Parse("#161719");
             pushed = false;
         }
     }

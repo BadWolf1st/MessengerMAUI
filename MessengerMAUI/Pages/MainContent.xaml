@@ -19,7 +19,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
                 <Grid HorizontalOptions="Start" Grid.Column="0" Padding="8">
                     <Rectangle RadiusX="30" RadiusY="30" HorizontalOptions="Start" WidthRequest="84" HeightRequest="84" Fill="#303030"/>
                     <Rectangle RadiusX="20" RadiusY="20" HorizontalOptions="Start" WidthRequest="64" HeightRequest="64" Fill="#D7A700" x:Name="UserIcon" Margin="10,0,0,0"/>
@@ -32,11 +31,9 @@
             </Grid>
             <Grid x:Name="ListOfChats" Grid.Row="1">
                 <!--Список чатов-->
-
             </Grid>
         </Grid>
         <Grid x:Name="ContentGrid" Grid.Column="2">
-
         </Grid>
     </Grid>
 </ContentView>

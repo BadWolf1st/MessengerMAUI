@@ -1,39 +1,5 @@
-
-/* Unmerged change from project 'MessengerMAUI (net6.0-maccatalyst)'
-Before:
-using System.Net.Sockets;
-using System.Text;
-using MessengerMAUI.Objects;
-After:
 using MessengerMAUI.Objects;
 using System.Net.Sockets;
-using System.Text;
-*/
-
-/* Unmerged change from project 'MessengerMAUI (net6.0-windows10.0.19041.0)'
-Before:
-using System.Net.Sockets;
-using System.Text;
-using MessengerMAUI.Objects;
-After:
-using MessengerMAUI.Objects;
-using System.Net.Sockets;
-using System.Text;
-*/
-
-/* Unmerged change from project 'MessengerMAUI (net6.0-ios)'
-Before:
-using System.Net.Sockets;
-using System.Text;
-using MessengerMAUI.Objects;
-After:
-using MessengerMAUI.Objects;
-using System.Net.Sockets;
-using System.Text;
-*/
-using MessengerMAUI.Objects;
-using System.Net.Sockets;
-
 namespace MessengerMAUI;
 
 public partial class MainContent : ContentView
@@ -53,7 +19,7 @@ public partial class MainContent : ContentView
     User user = new User();
     void initProfile()
     {
-        user.loadData();
+        //user.loadData();
 
         //Initials.Text = inicialsGenerator(user.FullName);
         //TODO: Добавить обработку цвета профиля
@@ -64,7 +30,6 @@ public partial class MainContent : ContentView
         if (Name != null) //TODO:Оптимизировать это!!! и в PersonCardPattern.xaml.cs
         {
             string inicials = Name[0].ToString();//Копируем первый символ из Фамилии собеседника
-
             int i = 1;
             while (i <= Name.Length)
             {
@@ -83,28 +48,40 @@ public partial class MainContent : ContentView
         }
     }
 
-    void openChat(string PersonName = "")//Вызов чата
+    public void openChat(string PersonName = "")//Call chat
     {
+        //update chatList like Native
+        DownloadPeoples();
+        chatList.reInitElementNativeOpenChat(PersonName);
+
+        //download chat content here
+
+        //and open chat
         ChatProcessor chat = new ChatProcessor(PersonName) { Margin = new Thickness(10, 0, 0, 0) };
         ContentGrid.Clear();
         ContentGrid.Add(chat, 2);
     }
 
-    void initchatcards() //Создание карточек собеседника
+    void updateChatList() //Method for Server (updating UI chat list)
     {
         DownloadPeoples();
-        ChatListCostructure chatList = new ChatListCostructure(this);
-        //TODO: !!Добавить обработчик нажатия по карточке собеседника!!
+        chatList.reInitElement();
+    }
+
+    ChatListCostructure chatList;
+
+    void initchatcards() //create chat cards
+    {
+        DownloadPeoples();
+        chatList = new ChatListCostructure(this);
         //TODO: !Добавить вывод из сервера всех доступных карточек! DONE 50%
         ListOfChats.Clear();
         ListOfChats.Add(chatList);
-
-        //openChat("Викторов Илья");
     }
 
     public List<People> peoples = new List<People>();
 
-    void DownloadPeoples()
+    void DownloadPeoples()// Dowloading friends info from Server
     {
         People people = new People(); //Simulator event
         people.login = "IliaK";
@@ -183,7 +160,6 @@ public partial class MainContent : ContentView
         {
             FriendListIsOpen = true;
             FriendButton.Background = Color.Parse("#7E7E7E");
-
             FriendContent content = new FriendContent(this);
             ContentGrid.Clear();
             ContentGrid.Add(content, 2);
@@ -193,4 +169,3 @@ public partial class MainContent : ContentView
         //TODO: !Добавить контент!
     }
 }
-
