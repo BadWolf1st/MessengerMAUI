@@ -60,6 +60,9 @@
 	  <MauiXaml Update="Bubble.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ContentViews\AdminContent.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ContentViews\ChatListCostructure.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MessengerMAUI.ContentViews.AdminContent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="88"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Text="Admin panel" HorizontalOptions="Start" FontSize="39" FontFamily="Lato" FontAttributes="Bold" Margin="20, 20, 0, 0"/>
+        <Grid Grid.Row="1" VerticalOptions="Fill">
+            <StackLayout VerticalOptions="Start" Margin="20, 20, 20, 20" Spacing="20">
+                <Button HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#303030" x:Name="AddButton" Clicked="AddButton_Clicked" Text="Добавить пользователя" TextColor="White"/>
+                <Button HorizontalOptions="Start" Margin="5, 0, 0, 0" VerticalOptions="Start" BackgroundColor="#303030" x:Name="DeleteButton" Clicked="DeleteButton_Clicked" Text="Удалить пользователя" TextColor="White"/>
+            </StackLayout>
+            <StackLayout x:Name="AddForm" IsVisible="false" VerticalOptions="Center" Margin="100, 150, 100, 0" Spacing="10">
+                <Entry/>
+                <Entry/>
+                <Entry/>
+                <Entry/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Grid.Column="0" HorizontalOptions="End" BindingContext="Admin" Color="#00B8E7" Margin="0, 0, 5, 0"/>
+                    <Label Grid.Column="1" Text="Admin" HorizontalOptions="Start" VerticalOptions="Center" Margin="5, 0, 0, 0"/>
+                </Grid>
+                <Button Text="Сохранить" BackgroundColor="#00B8E7" TextColor="White"/>
+            </StackLayout>
+            <StackLayout x:Name="DeleteForm" IsVisible="false" VerticalOptions="Center" Spacing="5" Margin="100">
+                <Entry/>
+                <Button Text="Удалить" BackgroundColor="#00B8E7" TextColor="White"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentView>

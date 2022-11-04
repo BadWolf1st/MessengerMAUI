@@ -16,6 +16,7 @@ public partial class MainContent : ContentView
         InitializeComponent();
         initProfile();
         initchatcards();
+        ContentGrid.Add(new ContentViews.AdminContent());
     }
 
     void initProfile()

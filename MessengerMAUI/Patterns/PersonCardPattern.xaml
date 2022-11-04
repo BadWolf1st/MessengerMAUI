@@ -5,7 +5,6 @@
 
     <Grid x:Name="clk" MaximumHeightRequest="69" MaximumWidthRequest="283" MinimumHeightRequest="69" MinimumWidthRequest="283" VerticalOptions="Center" HorizontalOptions="Fill" >
         <Rectangle x:Name="card" RadiusX = "10" RadiusY = "10" HorizontalOptions="Fill"/>
-        <!--<Button VerticalOptions="Fill" HorizontalOptions="Fill" Clicked="card_Clicked" IsVisible="true" x:Name="thatbutton" ZIndex="20"/>-->
         <Grid Margin="10, 10, 10, 10" MinimumHeightRequest="39" MinimumWidthRequest="23" HorizontalOptions="Fill" VerticalOptions="Fill">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
