@@ -3,34 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MessengerMAUI.PersonCardPattern">
 
-    <Grid HeightRequest="69" WidthRequest="283" VerticalOptions="Start">
+    <Grid MaximumHeightRequest="69" MaximumWidthRequest="283" VerticalOptions="Center" HorizontalOptions="Center">
         <Rectangle x:Name="card" RadiusX = "10" RadiusY = "10" />
-        <Grid>
+        <Grid Margin="10, 10, 10, 10" MinimumHeightRequest="39" MinimumWidthRequest="23" HorizontalOptions="Fill" VerticalOptions="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="158"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid x:Name = "Icon" Grid.Column = "0" Margin = "20" HeightRequest="50" WidthRequest="50" >
+            <Grid x:Name = "Icon" Grid.Column = "0" HeightRequest="50" WidthRequest="50" >
                 <Rectangle  x:Name = "IconCircle" Fill = "#D9D9D9" RadiusX = "180" RadiusY = "180" />
                 <Label HorizontalOptions = "Center" VerticalOptions="Center" x:Name="TextIcon" Text = "ВИ" TextColor="#1F2022" FontAttributes="Bold" />
             </Grid>
-            <Grid  Grid.Column="1" >
+            <Grid  Grid.Column="1" Padding="10, 0, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="PersonName" Grid.Row="0" Text="Викторов Илья" HorizontalOptions="Center" VerticalOptions="Center" />
-                <Label x:Name="LastMessage" Grid.Row="1" Text="Привет, как дела?" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label x:Name="PersonName" Grid.Row="0" Text="Викторов Илья" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" TextColor="White" FontFamily="Lato" />
+                <Label x:Name="LastMessage" Grid.Row="1" Text="Привет, как дела?" HorizontalOptions="Start" VerticalOptions="Center" FontSize="12" TextColor="#838486" FontFamily="Lato" />
             </Grid>
+            <Grid Grid.Column="2" HorizontalOptions="Center">
+                <Rectangle x:Name = "Ignor" HorizontalOptions = "Center" VerticalOptions="Center" RadiusX="90" RadiusY="90" Fill = "#66ADFF" HeightRequest="10" WidthRequest="10" />
+                <Rectangle x:Name = "NumberNotifications"  HorizontalOptions = "Center" VerticalOptions="Center" Fill = "#6B6B6B" HeightRequest="18" WidthRequest="34" RadiusX = "40" RadiusY = "40" />
+                <Label x:Name = "Quantity" Text = "10" TextColor = "White" HorizontalOptions = "Center" VerticalOptions="Center" FontSize = "14" />
+                <Label x:Name = "Time" Text = "9:32" TextColor = "White" HorizontalOptions = "End" VerticalOptions="Center" FontSize = "12" />
+            </Grid>
+            
 
-            <Rectangle Grid.Column = "2" x:Name = "Ignor" HorizontalOptions = "Center" VerticalOptions="Center" Fill = "#66ADFF" HeightRequest="10" WidthRequest="10" />
-            <Rectangle Grid.Column = "2" x:Name = "NumberNotifications"  HorizontalOptions = "Center" VerticalOptions="Center" Fill = "#6B6B6B" HeightRequest="34" WidthRequest="18" RadiusX = "40" RadiusY = "40" />
-            <Label Grid.Column = "2" x:Name = "Quantity" Text = "10" TextColor = "White" HorizontalOptions = "Center" VerticalOptions="Center" FontSize = "14" />
-            <Label Grid.Column = "2" x:Name = "Time" Text = "9:32" TextColor = "White" HorizontalOptions = "Center" VerticalOptions="Center" FontSize = "12" />
-        
         </Grid>
     </Grid>
 </ContentView>
