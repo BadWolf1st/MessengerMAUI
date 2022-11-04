@@ -3,15 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MessengerMAUI.PersonCardPattern">
 
-    <Grid MaximumHeightRequest="69" MaximumWidthRequest="283" VerticalOptions="Center" HorizontalOptions="Center">
-        <Rectangle x:Name="card" RadiusX = "10" RadiusY = "10" />
-        <Grid Margin="10, 10, 10, 10" MinimumHeightRequest="39" MinimumWidthRequest="23" HorizontalOptions="Fill" VerticalOptions="Center">
+    <Grid MaximumHeightRequest="69" MaximumWidthRequest="283" MinimumHeightRequest="69" MinimumWidthRequest="283" VerticalOptions="Center" HorizontalOptions="Fill">
+        <Rectangle x:Name="card" RadiusX = "10" RadiusY = "10" HorizontalOptions="Fill"/>
+        <Grid Margin="10, 10, 10, 10" MinimumHeightRequest="39" MinimumWidthRequest="23" HorizontalOptions="Fill" VerticalOptions="Fill">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="158"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
             <Grid x:Name = "Icon" Grid.Column = "0" HeightRequest="50" WidthRequest="50" >
                 <Rectangle  x:Name = "IconCircle" Fill = "#D9D9D9" RadiusX = "180" RadiusY = "180" />
                 <Label HorizontalOptions = "Center" VerticalOptions="Center" x:Name="TextIcon" Text = "ВИ" TextColor="#1F2022" FontAttributes="Bold" />
@@ -21,7 +20,6 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-
                 <Label x:Name="PersonName" Grid.Row="0" Text="Викторов Илья" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" TextColor="White" FontFamily="Lato" />
                 <Label x:Name="LastMessage" Grid.Row="1" Text="Привет, как дела?" HorizontalOptions="Start" VerticalOptions="Center" FontSize="12" TextColor="#838486" FontFamily="Lato" />
             </Grid>
@@ -31,8 +29,6 @@
                 <Label x:Name = "Quantity" Text = "10" TextColor = "White" HorizontalOptions = "Center" VerticalOptions="Center" FontSize = "14" />
                 <Label x:Name = "Time" Text = "9:32" TextColor = "White" HorizontalOptions = "End" VerticalOptions="Center" FontSize = "12" />
             </Grid>
-            
-
         </Grid>
     </Grid>
 </ContentView>

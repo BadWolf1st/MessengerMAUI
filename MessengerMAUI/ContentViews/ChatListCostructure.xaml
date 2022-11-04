@@ -8,8 +8,8 @@
 
     </Grid>-->
 
-    <StackLayout Spacing="5" x:Name="Chat">
-        
+    <StackLayout Spacing="5" x:Name="Chat" HorizontalOptions="Center" Margin="0, 20, 0, 0">
+
     </StackLayout>
-    
+
 </ContentView>

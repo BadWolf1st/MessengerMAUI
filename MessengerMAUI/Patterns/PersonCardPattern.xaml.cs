@@ -2,13 +2,13 @@ namespace MessengerMAUI;
 
 public partial class PersonCardPattern : ContentView
 {
-    public PersonCardPattern(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default", bool pushed = false)
+    public PersonCardPattern(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default")
     {
         InitializeComponent();
         init(Name, ThisLastMessage, haveNewMessage, newMessageCount, haveIgnore, time: time, IconColor: IconColor, textColor: textColor);
     }
 
-    void init(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default", bool pushed = false)
+    void init(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default")
     {
         TextIcon.Text = inicialsGenerator(Name);
         PersonName.Text = Name;
@@ -24,14 +24,6 @@ public partial class PersonCardPattern : ContentView
         {
             NumberNotifications.IsVisible = false;
             Quantity.IsVisible = false;
-        }
-        if (pushed)
-        {
-            card.Fill = Color.Parse("#333538");
-        }
-        else
-        {
-            card.Fill = Color.Parse("#161719");
         }
         if (haveNewMessage || haveIgnore)
         {
@@ -69,6 +61,21 @@ public partial class PersonCardPattern : ContentView
         else //Если имя пришло пустое, выводим ошибку
         {
             return "ERR";
+        }
+    }
+
+    bool pushed = false;
+    private void card_Clicked(object sender, EventArgs e)
+    {
+        if (!pushed)
+        {
+            card.Fill = Color.Parse("#333538");
+            pushed = true;
+        }
+        else
+        {
+            card.Fill = Color.Parse("#161719");
+            pushed = false;
         }
     }
 
