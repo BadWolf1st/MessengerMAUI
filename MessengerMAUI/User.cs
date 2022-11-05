@@ -18,20 +18,21 @@ namespace MessengerMAUI
 
         public string path = Environment.ExpandEnvironmentVariables(@"%APPDATA%\Messenger");
         public string file = "saveUserData.txt";
+        string WinName = Environment.UserName;
         public void saveData()
         {
             //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
             //Pass the filepath and filename to the StreamWriter Constructor
-            StreamWriter sw = new StreamWriter("C:\\Users\\Admin\\AppData\\Roaming\\Messenger\\saveUserData.txt");
+            StreamWriter sw = new StreamWriter($"C:\\Users\\{WinName}\\AppData\\Roaming\\Messenger\\saveUserData.txt");
             //Write a line of text
-           
+
             sw.WriteLine(FullName);
             sw.WriteLine(ProfileColor);
             sw.WriteLine(ProfileTextColor);
             sw.WriteLine(Login);
             sw.WriteLine(Password);
             //Write a second line of text
-           
+
             //Close the file
             sw.Close();
             //using (StreamWriter writer = new StreamWriter(path, false))
@@ -48,7 +49,6 @@ namespace MessengerMAUI
         public void loadData()
         {
             //Directory.CreateDirectory("C:\\Users\\Admin\\AppData\\Roaming\\Messenger");
-            string WinName = Environment.UserName;
             StreamReader sr = new StreamReader($"C:\\Users\\{WinName}\\AppData\\Roaming\\Messenger\\saveUserData.txt");
             //Read the first line of text
             //line = sr.ReadLine();
