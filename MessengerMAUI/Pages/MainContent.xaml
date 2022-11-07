@@ -19,7 +19,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
                 <Grid HorizontalOptions="Start" Grid.Column="0" Padding="8">
                     <Rectangle RadiusX="30" RadiusY="30" HorizontalOptions="Center" WidthRequest="84" HeightRequest="84" Fill="#303030"/>
                     <Rectangle RadiusX="20" RadiusY="20" HorizontalOptions="Center" WidthRequest="64" HeightRequest="64" Fill="#D7A700" x:Name="UserIcon"/>
