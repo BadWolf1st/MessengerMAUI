@@ -87,7 +87,7 @@ public partial class MainContent : ContentView
         peoples.Clear();
         People people = new People(); //Simulator event
         people.login = "IliaK";
-        people.name = "Êîðæîâ Èëüÿ";
+        people.name = "Коржов Илья";
         people.lastMessage = "Hi there!";
         people.friendStatus = true;
         people.onlineStatus = true;
@@ -99,8 +99,8 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "IliaV";
-        people.name = "Âèêòîðîâ Èëüÿ";
-        people.lastMessage = "Î! Ñåð¸ãà!";
+        people.name = "Викторов Илья";
+        people.lastMessage = "Серый, где тот метод?";
         people.friendStatus = true;
         people.onlineStatus = false;
         people.lastMessageTime = "9:25";
@@ -111,8 +111,8 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "DmitryK";
-        people.name = "Êóçüìèí Äìèòðèé";
-        people.lastMessage = "Ãî ôèçèêó äåëàòü?";
+        people.name = "Кузьмин Дмитрий";
+        people.lastMessage = "Бро, как дела?";
         people.friendStatus = true;
         people.onlineStatus = true;
         people.lastMessageTime = "16:25";
@@ -123,8 +123,8 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "TerehovS";
-        people.name = "Òåðåõîâ Ñëàâà";
-        people.lastMessage = "Ñåð¸ã, íå îòâëåêàþ?";
+        people.name = "Терехов Слава";
+        people.lastMessage = "Привет, занят?";
         people.friendStatus = true;
         people.onlineStatus = false;
         people.lastMessageTime = "20:10";
@@ -135,7 +135,7 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "MarinaD";
-        people.name = "Äàøêî Ìàðèíà";
+        people.name = "Дашко Марина";
         people.lastMessage = "";
         people.friendStatus = false;
         people.onlineStatus = false;
