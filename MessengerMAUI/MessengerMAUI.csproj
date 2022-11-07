@@ -66,7 +66,7 @@
 	  <MauiXaml Update="ContentViews\ChatListCostructure.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ChatProcessor.xaml">
+	  <MauiXaml Update="Patterns\ChatProcessor.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ContentViews\FriendContent.xaml">

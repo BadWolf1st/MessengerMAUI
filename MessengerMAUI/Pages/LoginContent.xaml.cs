@@ -12,7 +12,7 @@ public partial class LoginContent : ContentView
     public LoginContent(MainPage page)
     {
         InitializeComponent();
-        //client = page.client;
+        client = page.client;
         Page = page;
     }
 

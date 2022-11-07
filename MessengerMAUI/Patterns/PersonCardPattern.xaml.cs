@@ -20,7 +20,7 @@ public partial class PersonCardPattern : ContentView
         }
     }
 
-    void init(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default")
+    private void init(string Name = "", string ThisLastMessage = "", bool haveNewMessage = false, int newMessageCount = 0, bool haveIgnore = false, string time = "12:00", string IconColor = "default", string textColor = "default")
     {
         TextIcon.Text = inicialsGenerator(Name);
         PersonName.Text = Name;

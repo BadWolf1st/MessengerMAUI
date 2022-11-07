@@ -10,8 +10,8 @@ public partial class MainContent : ContentView
 
     public MainContent(MainPage page)
     {
-        //client = page.client;
         Page = page;
+        //client = page.client;
         InitializeComponent();
         initProfile();
         initchatcards();
@@ -116,64 +116,64 @@ public partial class MainContent : ContentView
 
         peoples.Clear();
         People people = new People(); //Simulator event
-        people.login = "IliaK";
-        people.name = "Коржов Илья";
-        people.lastMessage = "Hi there!";
-        people.friendStatus = true;
-        people.onlineStatus = true;
-        people.lastMessageTime = "19:30";
-        people.haveChat = true;
-        people.IsSendLastMessage = true;
-        people.IsReadLastMessage = true;
-        peoples.Add(people);
+        //people.login = "IliaK";
+        //people.name = "Коржов Илья";
+        //people.lastMessage = "Hi there!";
+        //people.friendStatus = true;
+        //people.onlineStatus = true;
+        //people.lastMessageTime = "19:30";
+        //people.haveChat = true;
+        //people.IsSendLastMessage = true;
+        //people.IsReadLastMessage = true;
+        //peoples.Add(people);
 
-        people = new People(); //Simulator event
-        people.login = "IliaV";
-        people.name = "Викторов Илья";
-        people.lastMessage = "Серый, где тот метод?";
-        people.friendStatus = true;
-        people.onlineStatus = false;
-        people.lastMessageTime = "9:25";
-        people.haveChat = true;
-        people.IsSendLastMessage = false;
-        people.IsReadLastMessage = false;
-        peoples.Add(people);
+        //people = new People(); //Simulator event
+        //people.login = "IliaV";
+        //people.name = "Викторов Илья";
+        //people.lastMessage = "Серый, где тот метод?";
+        //people.friendStatus = true;
+        //people.onlineStatus = false;
+        //people.lastMessageTime = "9:25";
+        //people.haveChat = true;
+        //people.IsSendLastMessage = false;
+        //people.IsReadLastMessage = false;
+        //peoples.Add(people);
 
-        people = new People(); //Simulator event
-        people.login = "DmitryK";
-        people.name = "Кузьмин Дмитрий";
-        people.lastMessage = "Бро, как дела?";
-        people.friendStatus = true;
-        people.onlineStatus = true;
-        people.lastMessageTime = "16:25";
-        people.haveChat = true;
-        people.IsSendLastMessage = false;
-        people.IsReadLastMessage = true;
-        peoples.Add(people);
+        //people = new People(); //Simulator event
+        //people.login = "DmitryK";
+        //people.name = "Кузьмин Дмитрий";
+        //people.lastMessage = "Бро, как дела?";
+        //people.friendStatus = true;
+        //people.onlineStatus = true;
+        //people.lastMessageTime = "16:25";
+        //people.haveChat = true;
+        //people.IsSendLastMessage = false;
+        //people.IsReadLastMessage = true;
+        //peoples.Add(people);
 
-        people = new People(); //Simulator event
-        people.login = "TerehovS";
-        people.name = "Терехов Слава";
-        people.lastMessage = "Привет, занят?";
-        people.friendStatus = true;
-        people.onlineStatus = false;
-        people.lastMessageTime = "20:10";
-        people.haveChat = true;
-        people.IsSendLastMessage = true;
-        people.IsReadLastMessage = false;
-        peoples.Add(people);
+        //people = new People(); //Simulator event
+        //people.login = "TerehovS";
+        //people.name = "Терехов Слава";
+        //people.lastMessage = "Привет, занят?";
+        //people.friendStatus = true;
+        //people.onlineStatus = false;
+        //people.lastMessageTime = "20:10";
+        //people.haveChat = true;
+        //people.IsSendLastMessage = true;
+        //people.IsReadLastMessage = false;
+        //peoples.Add(people);
 
-        people = new People(); //Simulator event
-        people.login = "MarinaD";
-        people.name = "Дашко Марина";
-        people.lastMessage = "";
-        people.friendStatus = false;
-        people.onlineStatus = false;
-        people.lastMessageTime = "";
-        people.haveChat = false;
-        people.IsSendLastMessage = false;
-        people.IsReadLastMessage = false;
-        peoples.Add(people);
+        //people = new People(); //Simulator event
+        //people.login = "MarinaD";
+        //people.name = "Дашко Марина";
+        //people.lastMessage = "";
+        //people.friendStatus = false;
+        //people.onlineStatus = false;
+        //people.lastMessageTime = "";
+        //people.haveChat = false;
+        //people.IsSendLastMessage = false;
+        //people.IsReadLastMessage = false;
+        //peoples.Add(people);
 
 
         //Event Loading peoples from server
