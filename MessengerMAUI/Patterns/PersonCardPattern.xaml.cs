@@ -82,6 +82,11 @@ public partial class PersonCardPattern : ContentView
             Command = new Command(() =>
             {
                 card_Clicked();
+                if (pushed)
+                {
+                    openChat();
+                }
+                
             })
         });
     }
@@ -116,7 +121,7 @@ public partial class PersonCardPattern : ContentView
         {
             card.Fill = Color.Parse("#333538");
             pushed = true;
-            openChat();
+            
         }
         else
         {

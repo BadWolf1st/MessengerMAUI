@@ -83,6 +83,7 @@ public partial class MainContent : ContentView
 
     void DownloadPeoples()// Dowloading friends info from Server
     {
+        peoples.Clear();
         People people = new People(); //Simulator event
         people.login = "IliaK";
         people.name = "Коржов Илья";
