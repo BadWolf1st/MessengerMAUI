@@ -10,28 +10,28 @@ public partial class FriendContent : ContentView
     {
         InitializeComponent();
         main = mainContent;
-        initElement();
+        //initElement();
     }
 
-    void initElement()
-    {
-        if (main.peoples.Count > 0)
-        {
-            int currentPeople = 0;
-            while (currentPeople < main.peoples.Count)
-            {
-                listOfFriends.AddRowDefinition(new RowDefinition());
-                addNewFriendCard(main.peoples[currentPeople].name, main.peoples[currentPeople].friendStatus, currentPeople, main.peoples[currentPeople].onlineStatus);
-                currentPeople++;
-            }
-            ScrollViewList.Content = listOfFriends;
-        }
-    }
+    //void initElement()
+    //{
+    //    if (main.peoples.Count > 0)
+    //    {
+    //        int currentPeople = 0;
+    //        while (currentPeople < main.peoples.Count)
+    //        {
+    //            listOfFriends.AddRowDefinition(new RowDefinition());
+    //            addNewFriendCard(main.peoples[currentPeople].name, main.peoples[currentPeople].friendStatus, currentPeople, main.peoples[currentPeople].onlineStatus);
+    //            currentPeople++;
+    //        }
+    //        ScrollViewList.Content = listOfFriends;
+    //    }
+    //}
 
     public void reInitElement()
     {
         listOfFriends.Clear();
-        initElement();
+        //initElement();
     }
 
     public void addNewFriendCard(string name, bool IsFriend, int numOfRow, bool IsOnline = true)

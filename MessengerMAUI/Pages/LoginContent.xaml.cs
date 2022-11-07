@@ -12,8 +12,8 @@ public partial class LoginContent : ContentView
     public LoginContent(MainPage page)
     {
         InitializeComponent();
-        client = page.client;
         Page = page;
+        client = page.client;
     }
 
     public string AcceptAuthorization;
@@ -42,7 +42,7 @@ public partial class LoginContent : ContentView
 
     private void LogInButton_Clicked(object sender, EventArgs e)
     {
-        NetworkStream stream = client.GetStream();
+        //NetworkStream stream = client.GetStream();
 
         getUserData();
 
@@ -70,7 +70,7 @@ public partial class LoginContent : ContentView
             Page.user.Login = UserLogin;
             Page.user.Password = UserPassword;
             Page.user.FullName = UserLogin;
-            stream.Close();
+            //stream.Close();
             Page.pageChanger("Main");
         }
         else
