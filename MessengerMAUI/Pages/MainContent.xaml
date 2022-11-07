@@ -23,7 +23,7 @@
                 <Grid HorizontalOptions="Start" Grid.Column="0" Padding="8">
                     <Rectangle RadiusX="30" RadiusY="30" HorizontalOptions="Center" WidthRequest="84" HeightRequest="84" Fill="#303030"/>
                     <Rectangle RadiusX="20" RadiusY="20" HorizontalOptions="Center" WidthRequest="64" HeightRequest="64" Fill="#D7A700" x:Name="UserIcon"/>
-                    <Label Text="РС" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" MaximumHeightRequest="64" FontSize="Large" MaximumWidthRequest="64" FontAttributes="Bold" x:Name="Initials" />
+                    <Label Text="РС" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" MaximumHeightRequest="64" FontSize="20" MaximumWidthRequest="64" FontAttributes="Bold" x:Name="Initials" />
                 </Grid>
                 <Grid HorizontalOptions="End" Grid.Column="1" Padding="8">
                     <Button x:Name="FriendButton" Clicked="ClickedFriendButton" Background="#161719" ImageSource="people_icon.png"  WidthRequest="50" HeightRequest="50" Padding="10,10,0,10"/>
