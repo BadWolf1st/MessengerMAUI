@@ -1,8 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
+/* Unmerged change from project 'MessengerMAUI (net6.0-maccatalyst)'
+Before:
+using System;
+After:
+using MessengerMAUI.Objects;
+using System;
+*/
+
+/* Unmerged change from project 'MessengerMAUI (net6.0-windows10.0.19041.0)'
+Before:
+using System;
+After:
+using MessengerMAUI.Objects;
+using System;
+*/
+
+/* Unmerged change from project 'MessengerMAUI (net6.0-ios)'
+Before:
+using System;
+After:
+using MessengerMAUI.Objects;
+using System;
+*/
+using
+/* Unmerged change from project 'MessengerMAUI (net6.0-maccatalyst)'
+Before:
 using System.Threading.Tasks;
+using MessengerMAUI.Objects;
+After:
+using System.Threading.Tasks;
+*/
+
+/* Unmerged change from project 'MessengerMAUI (net6.0-windows10.0.19041.0)'
+Before:
+using System.Threading.Tasks;
+using MessengerMAUI.Objects;
+After:
+using System.Threading.Tasks;
+*/
+
+/* Unmerged change from project 'MessengerMAUI (net6.0-ios)'
+Before:
+using System.Threading.Tasks;
+using MessengerMAUI.Objects;
+After:
+using System.Threading.Tasks;
+*/
+MessengerMAUI.Objects;
 
 namespace MessengerMAUI
 {

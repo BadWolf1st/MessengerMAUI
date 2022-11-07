@@ -1,13 +1,12 @@
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Internals;
+using MessengerMAUI.Objects;
 
 namespace MessengerMAUI;
 
 public partial class ChatProcessor : ContentView
 {
-	public ChatProcessor(string Name)
-	{
-		InitializeComponent();
+    public ChatProcessor(string Name)
+    {
+        InitializeComponent();
 
         //MessagesGrid.VerticalOptions = LayoutOptions.End;
         //MessagesGrid.HorizontalOptions = LayoutOptions.Fill;

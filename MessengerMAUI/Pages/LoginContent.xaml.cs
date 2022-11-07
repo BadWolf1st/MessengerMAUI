@@ -1,5 +1,5 @@
-﻿using System.Net.Sockets;
-using System.Text;
+﻿using MessengerMAUI.Objects;
+using System.Net.Sockets;
 
 namespace MessengerMAUI;
 
@@ -8,12 +8,12 @@ public partial class LoginContent : ContentView
     public TcpClient client = new TcpClient();
 
     MainPage Page;
-    
+
     public LoginContent(MainPage page)
-	{
-		InitializeComponent();
-        //client = page.client;
+    {
+        InitializeComponent();
         Page = page;
+        client = page.client;
     }
 
     public string AcceptAuthorization;
@@ -40,12 +40,12 @@ public partial class LoginContent : ContentView
         return true;
     }
 
-    private async void LogInButton_Clicked(object sender, EventArgs e)
+    private void LogInButton_Clicked(object sender, EventArgs e)
     {
         //NetworkStream stream = client.GetStream();
-        
+
         getUserData();
-        
+
         //byte[] data = Encoding.Unicode.GetBytes(UserLogin + " " + UserPassword);
         //stream.Write(data, 0, data.Length);
 
@@ -67,12 +67,10 @@ public partial class LoginContent : ContentView
 
             ErrorCantLogin.IsVisible = false;
             ErrorRectangle.IsVisible = false;
-            User user = new User();
-            user.Login = UserLogin;
-            user.Password = UserPassword;
-            user.FullName = UserLogin;
-            //user.saveData();
-
+            Page.user.Login = UserLogin;
+            Page.user.Password = UserPassword;
+            Page.user.FullName = UserLogin;
+            //stream.Close();
             Page.pageChanger("Main");
         }
         else
