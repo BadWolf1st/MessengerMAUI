@@ -84,6 +84,36 @@ public partial class MainContent : ContentView
 
     void DownloadPeoples()// Dowloading friends info from Server
     {
+        NetworkStream stream = client.GetStream();
+        byte[] SendRequest = Encoding.Unicode.GetBytes("3");
+        stream.Write(SendRequest, 0, SendRequest.Length);
+        string DataPeople = null;
+        while (DataPeople == "1")
+        {
+
+            byte[] data = new byte[1024];// буфер для получаемых данных
+
+            StringBuilder builder = new StringBuilder();
+            int bytes = 0;
+            do
+            {
+                bytes = stream.Read(data, 0, data.Length);
+                builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+            }
+            while (stream.DataAvailable);
+
+            DataPeople = builder.ToString();
+            if (DataPeople == "1")
+            {
+                break;
+            }
+            string[] DAta = DataPeople.Split(' ');
+            string id = DAta[0];
+            string Nickname = DAta[1];
+            string OnlineStatus = DAta[2];
+        }
+
+
         peoples.Clear();
         People people = new People(); //Simulator event
         people.login = "IliaK";

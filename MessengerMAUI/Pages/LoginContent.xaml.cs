@@ -42,7 +42,7 @@ public partial class LoginContent : ContentView
 
     private void LogInButton_Clicked(object sender, EventArgs e)
     {
-        //NetworkStream stream = client.GetStream();
+        NetworkStream stream = client.GetStream();
 
         getUserData();
 
@@ -70,7 +70,7 @@ public partial class LoginContent : ContentView
             Page.user.Login = UserLogin;
             Page.user.Password = UserPassword;
             Page.user.FullName = UserLogin;
-
+            stream.Close();
             Page.pageChanger("Main");
         }
         else
