@@ -20,10 +20,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid HorizontalOptions="Start" Grid.Column="0" Padding="8">
-                    <Rectangle RadiusX="30" RadiusY="30" HorizontalOptions="Start" WidthRequest="84" HeightRequest="84" Fill="#303030"/>
-                    <Rectangle RadiusX="20" RadiusY="20" HorizontalOptions="Start" WidthRequest="64" HeightRequest="64" Fill="#D7A700" x:Name="UserIcon" Margin="10,0,0,0"/>
-                    <Label Text="РС" HorizontalOptions="Start" VerticalOptions="Center" FontSize="39" FontAttributes="Bold" x:Name="Initials" Margin="17,0,0,0" />
-                    <!--<Button x:Name="testExitAccountButton" Text="Выход! Test" Clicked="ExitAccount"/>-->
+                    <Rectangle RadiusX="30" RadiusY="30" HorizontalOptions="Center" WidthRequest="84" HeightRequest="84" Fill="#303030"/>
+                    <Rectangle RadiusX="20" RadiusY="20" HorizontalOptions="Center" WidthRequest="64" HeightRequest="64" Fill="#D7A700" x:Name="UserIcon"/>
+                    <Label Text="РС" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" MaximumHeightRequest="64" FontSize="20" MaximumWidthRequest="64" FontAttributes="Bold" x:Name="Initials" />
                 </Grid>
                 <Grid HorizontalOptions="End" Grid.Column="1" Padding="8">
                     <Button x:Name="FriendButton" Clicked="ClickedFriendButton" Background="#161719" ImageSource="people_icon.png"  WidthRequest="50" HeightRequest="50" Padding="10,10,0,10"/>
@@ -34,6 +33,7 @@
             </Grid>
         </Grid>
         <Grid x:Name="ContentGrid" Grid.Column="2">
+            <!--Место для контента (чат, список друзей, настройки, админ панель...)-->
         </Grid>
     </Grid>
 </ContentView>

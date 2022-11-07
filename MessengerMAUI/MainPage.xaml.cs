@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using MessengerMAUI.Objects;
+using System.Net.Sockets;
 namespace MessengerMAUI;
 public partial class MainPage : ContentPage
 {
@@ -7,6 +8,7 @@ public partial class MainPage : ContentPage
     ////const string address = "78.107.255.193";
     //const string address = "172.20.10.7";
 
+    public User user = new User();
 
     public MainPage()
     {

@@ -1,5 +1,6 @@
 using MessengerMAUI.Objects;
 using System.Net.Sockets;
+using System.Text;
 namespace MessengerMAUI;
 
 public partial class MainContent : ContentView
@@ -14,35 +15,35 @@ public partial class MainContent : ContentView
         InitializeComponent();
         initProfile();
         initchatcards();
+        ContentGrid.Add(new ContentViews.AdminContent());
     }
 
-    User user = new User();
     void initProfile()
     {
         //user.loadData();
 
         //Initials.Text = inicialsGenerator(user.FullName);
-        //TODO: Добавить обработку цвета профиля
+        //TODO: Г„Г®ГЎГ ГўГЁГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГі Г¶ГўГҐГІГ  ГЇГ°Г®ГґГЁГ«Гї
     }
 
-    string inicialsGenerator(string Name) //Конструктор инициаллов собеседника из имени собесденика
+    string inicialsGenerator(string Name) //ГЉГ®Г­Г±ГІГ°ГіГЄГІГ®Г° ГЁГ­ГЁГ¶ГЁГ Г«Г«Г®Гў Г±Г®ГЎГҐГ±ГҐГ¤Г­ГЁГЄГ  ГЁГ§ ГЁГ¬ГҐГ­ГЁ Г±Г®ГЎГҐГ±Г¤ГҐГ­ГЁГЄГ 
     {
-        if (Name != null) //TODO:Оптимизировать это!!! и в PersonCardPattern.xaml.cs
+        if (Name != null) //TODO:ГЋГЇГІГЁГ¬ГЁГ§ГЁГ°Г®ГўГ ГІГј ГЅГІГ®!!! ГЁ Гў PersonCardPattern.xaml.cs
         {
-            string inicials = Name[0].ToString();//Копируем первый символ из Фамилии собеседника
+            string inicials = Name[0].ToString();//ГЉГ®ГЇГЁГ°ГіГҐГ¬ ГЇГҐГ°ГўГ»Г© Г±ГЁГ¬ГўГ®Г« ГЁГ§ Г”Г Г¬ГЁГ«ГЁГЁ Г±Г®ГЎГҐГ±ГҐГ¤Г­ГЁГЄГ 
             int i = 1;
             while (i <= Name.Length)
             {
-                if (Name[i] == ' ')//Ищем разрыв в строке между имененм и фамилией
+                if (Name[i] == ' ')//Г€Г№ГҐГ¬ Г°Г Г§Г°Г»Гў Гў Г±ГІГ°Г®ГЄГҐ Г¬ГҐГ¦Г¤Гі ГЁГ¬ГҐГ­ГҐГ­Г¬ ГЁ ГґГ Г¬ГЁГ«ГЁГҐГ©
                 {
-                    inicials += Name[i + 1];//Копируем второй инициал и раняем цикл
+                    inicials += Name[i + 1];//ГЉГ®ГЇГЁГ°ГіГҐГ¬ ГўГІГ®Г°Г®Г© ГЁГ­ГЁГ¶ГЁГ Г« ГЁ Г°Г Г­ГїГҐГ¬ Г¶ГЁГЄГ«
                     break;
                 }
                 i++;
             }
-            return inicials; //Возвращаем инициаллы ввиде строки
+            return inicials; //Г‚Г®Г§ГўГ°Г Г№Г ГҐГ¬ ГЁГ­ГЁГ¶ГЁГ Г«Г«Г» ГўГўГЁГ¤ГҐ Г±ГІГ°Г®ГЄГЁ
         }
-        else //Если имя пришло пустое, выводим ошибку
+        else //Г…Г±Г«ГЁ ГЁГ¬Гї ГЇГ°ГЁГёГ«Г® ГЇГіГ±ГІГ®ГҐ, ГўГ»ГўГ®Г¤ГЁГ¬ Г®ГёГЁГЎГЄГі
         {
             return "ERR";
         }
@@ -74,7 +75,7 @@ public partial class MainContent : ContentView
     {
         DownloadPeoples();
         chatList = new ChatListCostructure(this);
-        //TODO: !Добавить вывод из сервера всех доступных карточек! DONE 50%
+        //TODO: !Г„Г®ГЎГ ГўГЁГІГј ГўГ»ГўГ®Г¤ ГЁГ§ Г±ГҐГ°ГўГҐГ°Г  ГўГ±ГҐГµ Г¤Г®Г±ГІГіГЇГ­Г»Гµ ГЄГ Г°ГІГ®Г·ГҐГЄ! DONE 50%
         ListOfChats.Clear();
         ListOfChats.Add(chatList);
     }
@@ -86,7 +87,7 @@ public partial class MainContent : ContentView
         peoples.Clear();
         People people = new People(); //Simulator event
         people.login = "IliaK";
-        people.name = "Коржов Илья";
+        people.name = "ГЉГ®Г°Г¦Г®Гў Г€Г«ГјГї";
         people.lastMessage = "Hi there!";
         people.friendStatus = true;
         people.onlineStatus = true;
@@ -98,8 +99,8 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "IliaV";
-        people.name = "Викторов Илья";
-        people.lastMessage = "О! Серёга!";
+        people.name = "Г‚ГЁГЄГІГ®Г°Г®Гў Г€Г«ГјГї";
+        people.lastMessage = "ГЋ! Г‘ГҐГ°ВёГЈГ !";
         people.friendStatus = true;
         people.onlineStatus = false;
         people.lastMessageTime = "9:25";
@@ -110,8 +111,8 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "DmitryK";
-        people.name = "Кузьмин Дмитрий";
-        people.lastMessage = "Го физику делать?";
+        people.name = "ГЉГіГ§ГјГ¬ГЁГ­ Г„Г¬ГЁГІГ°ГЁГ©";
+        people.lastMessage = "ГѓГ® ГґГЁГ§ГЁГЄГі Г¤ГҐГ«Г ГІГј?";
         people.friendStatus = true;
         people.onlineStatus = true;
         people.lastMessageTime = "16:25";
@@ -122,8 +123,8 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "TerehovS";
-        people.name = "Терехов Слава";
-        people.lastMessage = "Серёг, не отвлекаю?";
+        people.name = "Г’ГҐГ°ГҐГµГ®Гў Г‘Г«Г ГўГ ";
+        people.lastMessage = "Г‘ГҐГ°ВёГЈ, Г­ГҐ Г®ГІГўГ«ГҐГЄГ Гѕ?";
         people.friendStatus = true;
         people.onlineStatus = false;
         people.lastMessageTime = "20:10";
@@ -134,7 +135,7 @@ public partial class MainContent : ContentView
 
         people = new People(); //Simulator event
         people.login = "MarinaD";
-        people.name = "Дашко Марина";
+        people.name = "Г„Г ГёГЄГ® ГЊГ Г°ГЁГ­Г ";
         people.lastMessage = "";
         people.friendStatus = false;
         people.onlineStatus = false;
@@ -166,7 +167,7 @@ public partial class MainContent : ContentView
             ContentGrid.Add(content, 2);
         }
 
-        //TODO: Добавить отправку ивента на сервер
-        //TODO: !Добавить контент!
+        //TODO: Г„Г®ГЎГ ГўГЁГІГј Г®ГІГЇГ°Г ГўГЄГі ГЁГўГҐГ­ГІГ  Г­Г  Г±ГҐГ°ГўГҐГ°
+        //TODO: !Г„Г®ГЎГ ГўГЁГІГј ГЄГ®Г­ГІГҐГ­ГІ!
     }
 }
