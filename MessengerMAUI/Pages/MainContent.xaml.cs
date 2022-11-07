@@ -85,14 +85,15 @@ public partial class MainContent : ContentView
 
     void DownloadPeoples()// Dowloading friends info from Server
     {
+        
         People people = new People();
         NetworkStream stream = client.GetStream();
         byte[] SendRequest = Encoding.Unicode.GetBytes("3");
         stream.Write(SendRequest, 0, SendRequest.Length);
         string DataPeople = null;
+        peoples.Clear();
         while (true)
         {
-
             byte[] data = new byte[1024];// буфер для получаемых данных
 
             StringBuilder builder = new StringBuilder();
@@ -124,6 +125,7 @@ public partial class MainContent : ContentView
                 people.onlineStatus = false;
             }
             //people.onlineStatus = OnlineStatus;
+            peoples.Add(people);
             people = new People();
         }
 

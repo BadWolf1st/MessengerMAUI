@@ -9,7 +9,7 @@
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" BackgroundColor="#303030" WidthRequest="70" HorizontalOptions="Center" ImageSource="search_icon.png" x:Name="SearchButton"/>
+            <Button Clicked="SearchButton_Clicked" Grid.Column="0" BackgroundColor="#303030" WidthRequest="70" HorizontalOptions="Center" ImageSource="search_icon.png" x:Name="SearchButton"/>
             <Entry x:Name="SearchLineBox" BackgroundColor="#303030" Grid.Column="1"/>
         </Grid>
         <ScrollView x:Name="ScrollViewList">
