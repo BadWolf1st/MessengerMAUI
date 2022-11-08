@@ -16,7 +16,7 @@ public partial class MainContent : ContentView
         initProfile();
         //initchatcards();
         ContentGrid.Add(new ContentViews.AdminContent());
-        DownloadPeoples();
+        //DownloadFriends();
     }
 
     void initProfile()
@@ -53,7 +53,7 @@ public partial class MainContent : ContentView
     public void openChat(string PersonName = "")//Call chat
     {
         //update chatList like Native
-        DownloadPeoples();
+        DownloadFriends();
         chatList.reInitElementNativeOpenChat(PersonName);
 
         //download chat content here
@@ -66,7 +66,7 @@ public partial class MainContent : ContentView
 
     void updateChatList() //Method for Server (updating UI chat list)
     {
-        DownloadPeoples();
+        //DownloadFriends();
         chatList.reInitElement();
     }
 
@@ -74,24 +74,23 @@ public partial class MainContent : ContentView
 
     void initchatcards() //create chat cards
     {
-        DownloadPeoples();
+        DownloadFriends();
         chatList = new ChatListCostructure(this);
         //TODO: !Äîáàâèòü âûâîä èç ñåðâåðà âñåõ äîñòóïíûõ êàðòî÷åê! DONE 50%
         ListOfChats.Clear();
         ListOfChats.Add(chatList);
     }
 
-    public List<People> peoples = new List<People>();
+    public List<Friend> friends = new List<Friend>();
 
-    void DownloadPeoples()// Dowloading friends info from Server
+    void DownloadFriends()// Dowloading friends info from Server
     {
-        
-        People people = new People();
+        Friend friend = new Friend();
         NetworkStream stream = client.GetStream();
         byte[] SendRequest = Encoding.Unicode.GetBytes("3");
         stream.Write(SendRequest, 0, SendRequest.Length);
         string DataPeople = null;
-        peoples.Clear();
+        friends.Clear();
         while (true)
         {
             byte[] data = new byte[1024];// буфер для получаемых данных
@@ -114,19 +113,19 @@ public partial class MainContent : ContentView
             string id = DAta[0];
             string Nickname = DAta[1];
             string OnlineStatus = DAta[2];
-            people.id = id;
-            people.name = Nickname;
+            friend.id = id;
+            friend.name = Nickname;
             if (OnlineStatus == "Offline")
             {
-                people.onlineStatus = true;
+                friend.onlineStatus = true;
             }
             else
             {
-                people.onlineStatus = false;
+                friend.onlineStatus = false;
             }
             //people.onlineStatus = OnlineStatus;
-            peoples.Add(people);
-            people = new People();
+            friends.Add(friend);
+            friend = new Friend();
         }
 
 

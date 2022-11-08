@@ -1,5 +1,4 @@
 using MessengerMAUI.Patterns;
-using Microsoft.Maui.Platform;
 using System.Net.Sockets;
 using System.Text;
 
@@ -20,7 +19,7 @@ public partial class FriendContent : ContentView
         if (peoples.Count > 0)
         {
             int currentPeople = 0;
-            while (currentPeople < main.peoples.Count)
+            while (currentPeople < peoples.Count)
             {
                 listOfFriends.AddRowDefinition(new RowDefinition());
                 addNewFriendCard(peoples[currentPeople].name, false, currentPeople, peoples[currentPeople].onlineStatus);
