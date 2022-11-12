@@ -5,7 +5,7 @@ namespace MessengerMAUI;
 
 public partial class LoginContent : ContentView
 {
-    public TcpClient client = new TcpClient();
+    public TcpClient client;
 
     MainPage Page;
 
@@ -69,7 +69,7 @@ public partial class LoginContent : ContentView
             ErrorRectangle.IsVisible = false;
             Page.user.Login = UserLogin;
             Page.user.Password = UserPassword;
-            Page.user.FullName = UserLogin;
+            Page.user.FullName = "Sergey";
             //stream.Close();
             Page.pageChanger("Main");
         }
