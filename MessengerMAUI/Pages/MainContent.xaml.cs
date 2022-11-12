@@ -5,7 +5,7 @@ namespace MessengerMAUI;
 
 public partial class MainContent : ContentView
 {
-    public TcpClient client = new TcpClient();
+    public TcpClient client;
     MainPage Page;
 
     public MainContent(MainPage page)

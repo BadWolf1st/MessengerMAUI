@@ -54,6 +54,10 @@ public partial class FriendContent : ContentView
         NetworkStream stream = main.client.GetStream();
         byte[] SendRequest = Encoding.Unicode.GetBytes("3");
         stream.Write(SendRequest, 0, SendRequest.Length);
+
+        SendRequest = Encoding.Unicode.GetBytes(search);
+        stream.Write(SendRequest, 0, SendRequest.Length);
+
         string DataPeople = null;
         peoples.Clear();
         while (true)
@@ -70,6 +74,12 @@ public partial class FriendContent : ContentView
             while (stream.DataAvailable);
 
             DataPeople = builder.ToString();
+            if (DataPeople == "0")
+            {
+                ///Need to display a message that the user is not found
+                ///Необходимо вывести сообщение о том, что пользователь не найден
+                break;
+            }
             if (DataPeople == "1")
             {
                 break;
